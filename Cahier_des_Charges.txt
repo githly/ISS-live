@@ -1,0 +1,14 @@
+Google Map Full Viewport (- margin/padding)
+8 panneaux:
+    1 maitre haut (TITLE)
+    1 maitre bas (FORM)
+    1 maitre gauche (BUTTONS)
+    1 maitre droit (TWITTER)
+    1 esclave haut-gauche (ISS CURRENT POSITION)
+    1 esclave haut-droite (ISS LINKS)
+    1 esclave bas-gauche (USER POSITION)
+    1 esclave bas-droite (ISS PASS TIME)
+Les panneaux esclaves ne peuvent s'enlever que si les DEUX paneaux maitres adjacents sont enlevés
+Sinon, les panneaux esclaves seront masqués
+Les panneaux maitres peuvent tout le temps s'enlever
+Tous les panneaux ont un bouton dans le même coin pour afficher/enlever (+/- ou flèche)
