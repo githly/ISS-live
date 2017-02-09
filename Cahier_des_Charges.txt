@@ -1,14 +1,63 @@
 Google Map Full Viewport (- margin/padding)
+
+Fonction plein écran
+Enlève les panneaux par un effet de fade OU déclenche les animations de disparition
+Zoom pour remettre à l'echelle
+
+-------------------------------------------------------------------------------
 8 panneaux:
     1 maitre haut (TITLE)
     1 maitre bas (FORM)
     1 maitre gauche (BUTTONS)
-    1 maitre droit (TWITTER)
-    1 esclave haut-gauche (ISS CURRENT POSITION)
+    1 maitre droite (TWITTER)
+    1 esclave haut-gauche (ISS POSITION)
     1 esclave haut-droite (ISS LINKS)
     1 esclave bas-gauche (USER POSITION)
     1 esclave bas-droite (ISS PASS TIME)
-Les panneaux esclaves ne peuvent s'enlever que si les DEUX paneaux maitres adjacents sont enlevés
-Sinon, les panneaux esclaves seront masqués
-Les panneaux maitres peuvent tout le temps s'enlever
-Tous les panneaux ont un bouton dans le même coin pour afficher/enlever (+/- ou flèche)
+Les panneaux esclaves ne peuvent disparaitre que si les DEUX paneaux maitres adjacents disparaissent
+Sinon, les panneaux esclaves auront un cache
+Les panneaux maitres peuvent tout le temps disparaitre
+Tous les panneaux ont un bouton pour disparaitre/apparaitre (+/- ou flèche) (placé au plus près du centre de la page)
+
+L'animation de disparition des panneaux se fera en 3 étapes: Mouvement 1 + Stop + Mouvement 2
+Mouvement 1 et Mouvement 2 auront la même durée
+La durée totale doit être inférieure ou égale à 1s (eg: 0.45 + 0.1 + 0.45)
+Mouvement 1 des maitres: rotation 3D
+Mouvement 2 des maitres: translation 2D
+Mouvement 1 des esclaves: transation 2D du cache
+Mouvement 2 des esclaves: rotation 2D
+
+Le Mouvement 1 se passe entièrement à l'écran
+Le Mouvement 2 fait sortir de l'écran
+
+L'animation d'apparition est inverse de l'animation de disparition
+
++++++++++++++++++++++++++++++++++++++++
+Panneau maitre haut (TITLE)
+
++++++++++++++++++++++++++++++++++++++++
+Panneau maitre bas (FORM)
+
++++++++++++++++++++++++++++++++++++++++
+Panneau maitre gauche (BUTTONS)
+
++++++++++++++++++++++++++++++++++++++++
+Panneau maitre droite (TWITTER)
+
++++++++++++++++++++++++++++++++++++++++
+Panneau escalve haut-gauche (ISS POSITION)
+
++++++++++++++++++++++++++++++++++++++++
+Panneau esclave haut-droite (ISS LINKS)
+
++++++++++++++++++++++++++++++++++++++++
+Panneau esclave bas-gauche (USER POSITION)
+
++++++++++++++++++++++++++++++++++++++++
+Panneau esclave bas-droite (ISS PASS TIME)
+
+-------------------------------------------------------------------------------
+IMPLEMENTATION
+des classes en JS
+Les fonctions CALLBACK servent de routeurs d'informations (que des appels de fonctions créées)
+Les API ISS s'appellent avec un appendChild d'une balise <script> avec le jsonp en src (et un setInterval pour mettre à jour)
