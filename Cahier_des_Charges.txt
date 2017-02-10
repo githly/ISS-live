@@ -32,32 +32,41 @@ Le Mouvement 2 fait sortir de l'écran
 
 L'animation d'apparition est inverse de l'animation de disparition
 
-+++++++++++++++++++++++++++++++++++++++
-Panneau maitre haut (TITLE)
+OR
 
-+++++++++++++++++++++++++++++++++++++++
-Panneau maitre bas (FORM)
-
-+++++++++++++++++++++++++++++++++++++++
-Panneau maitre gauche (BUTTONS)
-
-+++++++++++++++++++++++++++++++++++++++
-Panneau maitre droite (TWITTER)
-
-+++++++++++++++++++++++++++++++++++++++
-Panneau escalve haut-gauche (ISS POSITION)
-
-+++++++++++++++++++++++++++++++++++++++
-Panneau esclave haut-droite (ISS LINKS)
-
-+++++++++++++++++++++++++++++++++++++++
-Panneau esclave bas-gauche (USER POSITION)
-
-+++++++++++++++++++++++++++++++++++++++
-Panneau esclave bas-droite (ISS PASS TIME)
+Simple translation 2D 45°/90°
 
 -------------------------------------------------------------------------------
 IMPLEMENTATION
 des classes en JS
 Les fonctions CALLBACK servent de routeurs d'informations (que des appels de fonctions créées)
 Les API ISS s'appellent avec un appendChild d'une balise <script> avec le jsonp en src (et un setInterval pour mettre à jour)
+
+-------------------------------------------------------------------------------
+FEATURES
+google maps full viewport
+Single User marker
+Single ISS marker (update Interval)
+record last ISS positions
+Draw ISS path
+click google maps marker + recenter User
+form google maps marker + recenter User
+form select input villes + recenter User
+clear User marker button for + recenter ISS
+daynight cycle google maps
+
+twitter accounts: astronauts, iss, nasa
+credits: portfolio, simplonmars, centrale marseille
+
+shrinkable title
+button 12H:24H
+hour
+countodwn
+ISS live position
+ISS recenter button
+User mrker position
+User recenter button
+Liens vers ISS Live camera, Nasa, ISS (other)
+rescale map with visible User marker and ISS marker
+hidden (or out of place) map buttons
+localStorage user marker, options
