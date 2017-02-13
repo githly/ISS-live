@@ -1,0 +1,5 @@
+<svg width="16" height="16">
+    <path d="M2.34 0 H9.66 L13.66 4 V16 H2.34 V0" stroke="rgb(0,0,0)" stroke-width="1" fill="rgb(255,255,255)" />
+    <line x1="9.66" x2="9.66" y1="4.5" y2="0" stroke="rgb(0,0,0)" stroke-width="1" />
+    <line x1="9.16" x2="13.66" y1="4" y2="4" stroke="rgb(0,0,0)" stroke-width="1" />
+</svg>

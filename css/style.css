@@ -1,0 +1,42 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
+div{
+  background-color: black;
+  position: absolute;
+  box-sizing: border-box;
+
+}
+.right, .left, .top, .bottom{
+  height:19vh;
+  width: 19vw;
+}
+
+
+.wide.bottom, .wide.top{
+  width: calc(100vw - 19vw - 19vw);
+  left: 19vw;
+}
+
+.wide.right, .wide.left{
+  height: calc(100vh - 19vh - 19vh);
+  top: 19vh;
+}
+.top{
+  top = O;
+}
+.right{
+  right: 0;
+}
+.bottom{
+  bottom: 0;
+}
+.left{
+  left: 0;
+}
+
+.selected{
+  color: black;
+}
