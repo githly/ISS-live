@@ -1,7 +1,7 @@
 Google Map Full Viewport (- margin/padding)
 
-Fonction plein écran
-Enlève les panneaux par un effet de fade OU déclenche les animations de disparition
+Fonction plein ecran
+Enlève les panneaux par un effet de fade OU declenche les animations de disparition
 Zoom pour remettre à l'echelle
 
 -------------------------------------------------------------------------------
@@ -17,18 +17,18 @@ Zoom pour remettre à l'echelle
 Les panneaux esclaves ne peuvent disparaitre que si les DEUX paneaux maitres adjacents disparaissent
 Sinon, les panneaux esclaves auront un cache
 Les panneaux maitres peuvent tout le temps disparaitre
-Tous les panneaux ont un bouton pour disparaitre/apparaitre (+/- ou flèche) (placé au plus près du centre de la page)
+Tous les panneaux ont un bouton pour disparaitre/apparaitre (+/- ou flèche) (place au plus près du centre de la page)
 
-L'animation de disparition des panneaux se fera en 3 étapes: Mouvement 1 + Stop + Mouvement 2
-Mouvement 1 et Mouvement 2 auront la même durée
-La durée totale doit être inférieure ou égale à 1s (eg: 0.45 + 0.1 + 0.45)
+L'animation de disparition des panneaux se fera en 3 etapes: Mouvement 1 + Stop + Mouvement 2
+Mouvement 1 et Mouvement 2 auront la même duree
+La duree totale doit être inferieure ou egale à 1s (eg: 0.45 + 0.1 + 0.45)
 Mouvement 1 des maitres: rotation 3D
 Mouvement 2 des maitres: translation 2D
 Mouvement 1 des esclaves: transation 2D du cache
 Mouvement 2 des esclaves: rotation 2D
 
-Le Mouvement 1 se passe entièrement à l'écran
-Le Mouvement 2 fait sortir de l'écran
+Le Mouvement 1 se passe entièrement à l'ecran
+Le Mouvement 2 fait sortir de l'ecran
 
 L'animation d'apparition est inverse de l'animation de disparition
 
@@ -39,38 +39,98 @@ Simple translation 2D 45°/90°
 -------------------------------------------------------------------------------
 IMPLEMENTATION
 des classes en JS
-Les fonctions CALLBACK servent de routeurs d'informations (que des appels de fonctions créées)
+Les fonctions CALLBACK servent de routeurs d'informations (que des appels de fonctions creees)
 Les API ISS s'appellent avec un appendChild d'une balise <script> avec le jsonp en src (et un setInterval pour mettre à jour)
 
 -------------------------------------------------------------------------------
 FEATURES
-google maps full viewport
-Single User marker
-Single ISS marker (update Interval)
-record last ISS positions
-Draw ISS path
-click google maps marker + recenter User
-form google maps marker + recenter User
-form select input villes + recenter User
-clear User marker button for + recenter ISS
-daynight cycle google maps
-
-twitter accounts: astronauts, iss, nasa
-credits: portfolio, simplonmars, centrale marseille
-
-shrinkable title
-button 12H:24H
-hour
-countodwn
-ISS live position
-ISS recenter button
-User mrker position
-User recenter button
-Liens vers ISS Live camera, Nasa, ISS (other)
-rescale map with visible User marker and ISS marker
-hidden (or out of place) map buttons
-localStorage user marker, options
+A: google maps full viewport
+B: Single User marker
+C: Single ISS marker (update Interval)
+D: record last ISS positions
+E: Draw ISS path
+F: click google maps marker + recenter User
+G: clear User marker button for + recenter ISS
+H: form google maps marker + recenter User
+I: form select input villes + recenter User
+J: daynight cycle google maps
+K: twitter accounts: astronauts, iss, nasa
+L: credits: portfolio, simplonmars, centrale marseille
+M: ISS Pass time
+N: ISS live position
+O: User marker position
+P: localStorage user marker, options
+Q: Liens vers ISS Live camera, Nasa, ISS (other)
+R: hidden (or out of place) map buttons
+S: shrinkable title
 
 -------------------------------------------------------------------------------
-tasks
+TASKS
+A1: Doc google maps
+A2: init google maps
+A3: styler conteneur google maps
+A4: definir A5-An
 
+B1&C1: Doc google maps marker
+B2: placer User marker google maps au click
+B3: enlever marker au nouveau click
+B4: enlever marker boutton clear
+B5: rezoomer la map pouf afficher ISS User
+
+C2: placer ISS marker appel script
+C3: enlever marker rappel script
+
+D1: enregistrer position appel script
+D2: bloquer taille tableau (eg: 3600 points)
+
+E1: Trouver techno dessin traits google maps
+E2: dessiner sur la map
+
+F1: recentrage au click
+F2: creation du bouton de recentrage User
+F3: recentrage au bouton User
+
+G1: recentrage au bouton clear
+G2: creation du bouton de recentrage ISS
+G3: recentrage au bouton ISS
+
+H1: creation du formulaire (champs + submit)
+H2: recuperation des valeurs des champs
+H3: gestion du submit
+H4: creation du boutton clear
+H5: creation du User marker
+
+I1: creation du champ
+I2: attribution de valeurs par defaut
+
+J1: Doc google maps day/night cycle
+J2: afficher le cycle jour/nuit
+
+K1: Recuperer comptes twitter
+K2: afficher les infos (liens clicks)
+
+L1: Recuperer les infos de l'equipe
+L2: afficher les infos (liens clicks)
+
+M1: Affichage de l'heure estime
+M2: affichage du compte à rebours
+M3: bouton changement affichage horaire (12h/24h)
+
+N1: Recuperer les coordonnees de l'ISS
+N2: afficher les coordonnees
+
+O1: recuperer les coordonners de User
+O2: afficher les coordonnees
+
+P1: bouton clear localStorage
+P2: stocker donnees User
+P3: stocker options User
+
+Q1: Recuperer les infos/sites
+Q2: afficher les infos (liens clicks)
+
+R1: Doc google Maps boutons
+R2: enlever boutons google maps OU les deplacer
+
+S1: Définir la transformation à appliquer
+S2: appliquer la transformation
