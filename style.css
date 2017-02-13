@@ -1,0 +1,42 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
+div{
+  background-color: black;
+  position: absolute;
+  box-sizing: border-box;
+
+}
+.right, .left, .top, .bottom{
+  height:25vh;
+  width: 25vw;
+}
+
+
+.wide.bottom, .wide.top{
+  width: 50vw;
+  left: 25vw;
+}
+
+.wide.right, .wide.left{
+  height: 50vh;
+  top: 25vh;
+}
+.top{
+  top = O;
+}
+.right{
+  right: 0;
+}
+.bottom{
+  bottom: 0;
+}
+.left{
+  left: 0;
+}
+
+.selected{
+  color: black;
+}
