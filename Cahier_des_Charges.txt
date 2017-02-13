@@ -70,3 +70,7 @@ Liens vers ISS Live camera, Nasa, ISS (other)
 rescale map with visible User marker and ISS marker
 hidden (or out of place) map buttons
 localStorage user marker, options
+
+-------------------------------------------------------------------------------
+tasks
+
