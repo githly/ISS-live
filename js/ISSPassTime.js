@@ -11,7 +11,7 @@ const ISSPassTimeScriptCallback = function(data)
 {
     console.log(data);
     document.getElementById("TEST").children[1].textContent = data.response[0].duration;
-    //CallUNIXConvertTimestampScript(data.response[0].risetime);
+    CallUNIXConvertTimestampScript(data.response[0].risetime);
 }
 
 const CallUNIXConvertTimestampScript = function(timestamp)
