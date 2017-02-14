@@ -66,71 +66,90 @@ S: shrinkable title
 
 -------------------------------------------------------------------------------
 TASKS
+A: google maps full viewport
 A1: Doc google maps
 A2: init google maps
 A3: styler conteneur google maps
 A4: definir A5-An
 
+B: Single User marker
 B1&C1: Doc google maps marker
 B2: placer User marker google maps au click
 B3: enlever marker au nouveau click
 B4: enlever marker boutton clear
 B5: rezoomer la map pouf afficher ISS User
 
+C: Single ISS marker (update Interval)
 C2: placer ISS marker appel script
 C3: enlever marker rappel script
 
+D: record last ISS positions
 D1: enregistrer position appel script
 D2: bloquer taille tableau (eg: 3600 points)
 
+E: Draw ISS path
 E1: Trouver techno dessin traits google maps
 E2: dessiner sur la map
 
+F: click google maps marker + recenter User
 F1: recentrage au click
 F2: creation du bouton de recentrage User
 F3: recentrage au bouton User
 
+G: clear User marker button for + recenter ISS
 G1: recentrage au bouton clear
 G2: creation du bouton de recentrage ISS
 G3: recentrage au bouton ISS
 
+H: form google maps marker + recenter User
 H1: creation du formulaire (champs + submit)
 H2: recuperation des valeurs des champs
 H3: gestion du submit
 H4: creation du boutton clear
 
+I: form select input villes + recenter User
 I1: creation du champ
 I2: attribution de valeurs par defaut
 
+J: daynight cycle google maps
 J1: Doc google maps day/night cycle
 J2: afficher le cycle jour/nuit
 
+K: twitter accounts: astronauts, iss, nasa
 K1: Recuperer comptes twitter
 K2: afficher les infos (liens clicks)
 
+L: credits: portfolio, simplonmars, centrale marseille
 L1: Recuperer les infos de l'equipe
 L2: afficher les infos (liens clicks)
 
+M: ISS Pass time
 M1: Affichage de l'heure estime
 M2: affichage du compte à rebours
 M3: bouton changement affichage horaire (12h/24h)
 
+N: ISS live position
 N1: Recuperer les coordonnees de l'ISS
 N2: afficher les coordonnees
 
+O: User marker position
 O1: recuperer les coordonners de User
 O2: afficher les coordonnees
 
+P: localStorage user marker, options
 P1: bouton clear localStorage
 P2: stocker donnees User
 P3: stocker options User
 
+Q: Liens vers ISS Live camera, Nasa, ISS (other)
 Q1: Recuperer les infos/sites
 Q2: afficher les infos (liens clicks)
 
+R: hidden (or out of place) map buttons
 R1: Doc google Maps boutons
 R2: enlever boutons google maps OU les deplacer
 
+S: shrinkable title
 S1: Définir la transformation à appliquer
 S2: appliquer la transformation
 
