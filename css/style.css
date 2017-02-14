@@ -4,10 +4,19 @@ body{
 }
 
 div{
-  background-color: black;
   position: absolute;
   box-sizing: border-box;
 
+}
+.cache{
+  background-color: black;
+
+}
+#map{
+  top: 19vh;
+  left: 19vw;
+  width: 62vw;
+  height: 62vh;
 }
 .right, .left, .top, .bottom{
   height:19vh;
