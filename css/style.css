@@ -13,10 +13,11 @@ div{
 
 }
 #map{
-  top: 19vh;
-  left: 19vw;
-  width: 62vw;
-  height: 62vh;
+  top: 0vh;
+  left: 0vw;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
 }
 .right, .left, .top, .bottom{
   height:19vh;
