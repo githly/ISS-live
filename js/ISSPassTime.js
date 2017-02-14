@@ -1,3 +1,5 @@
+let hourformat = false;
+
 const callISSPassTimeScript = function(lat, lon)
 {
     if(lat == 0) lat++;
@@ -22,9 +24,25 @@ const convertDate = function(d)
     let month = months[d.getMonth()];
     let date = d.getDate();
     let hour = d.getHours();
+    let pm = false;
+    if(hourformat) {
+        if (hour > 12) {
+            hour -= 12;
+            pm = true;
+        } else if (hour === 0) {
+            hour = 12;
+        }
+    }
     let min = d.getMinutes();
     let sec = d.getSeconds();
     let time = date + '-' + month + '-' + year + ' ' + hour + ':' + min + ':' + sec ;
+    if(hourformat) {
+        if(pm) {
+            time += " PM";
+        } else {
+            time += " AM";
+        }
+    }
     return time;
 }
 const convertDuration = function(d)
