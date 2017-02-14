@@ -98,7 +98,6 @@ H1: creation du formulaire (champs + submit)
 H2: recuperation des valeurs des champs
 H3: gestion du submit
 H4: creation du boutton clear
-H5: creation du User marker
 
 I1: creation du champ
 I2: attribution de valeurs par defaut
@@ -134,3 +133,16 @@ R2: enlever boutons google maps OU les deplacer
 
 S1: Définir la transformation à appliquer
 S2: appliquer la transformation
+
+-------------------------------------------------------------------------------
+NOMMAGE
+Branches git: [surnom_github]-[lettre_branche]-[nom_branche]
+[lettre_branche] MAJUSCULE
+[nom_branche] camel-case (pas d'espace)
+
+Commits git: [fonctionnalite_branche] - [message]
+[fonctionnalite_branche] MAJUSCULE et chiffre
+[message] en Anglais
+
+fichiers: nom cohérent
+app.js INTERDIT
