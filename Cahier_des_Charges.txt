@@ -67,8 +67,8 @@ S: shrinkable title
 -------------------------------------------------------------------------------
 TASKS
 A1: Doc google maps
-A2: init google maps
-A3: styler conteneur google maps
+Done A2: init google maps
+Done A3: styler conteneur google maps
 A4: definir A5-An
 
 B1&C1: Doc google maps marker
