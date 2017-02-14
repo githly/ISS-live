@@ -63,6 +63,7 @@ P: localStorage user marker, options
 Q: Liens vers ISS Live camera, Nasa, ISS (other)
 R: hidden (or out of place) map buttons
 S: shrinkable title
+T: style
 
 -------------------------------------------------------------------------------
 TASKS
@@ -152,6 +153,12 @@ R2: enlever boutons google maps OU les deplacer
 S: shrinkable title
 S1: Définir la transformation à appliquer
 S2: appliquer la transformation
+
+T: style
+T1: add reset css
+T2: add structure html
+T3: add particular style
+
 
 -------------------------------------------------------------------------------
 NOMMAGE
