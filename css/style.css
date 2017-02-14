@@ -42,7 +42,9 @@ a, a:target, a:visited, a:active {
 img {
   max-width: 100%;
 }
-     
+
+/* Structure Generale */
+
 
 body{
   margin: 0;
@@ -96,3 +98,31 @@ div{
 .selected{
   color: black;
 }
+
+/* Structure des TItres */
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+
+}
+
+/* Elements */
+
+/* Forms */
+
+/* Media Queries */ 
