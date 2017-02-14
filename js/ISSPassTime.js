@@ -74,4 +74,11 @@ const ISSPassTimeReady = function()
 {
     callISSPassTimeScript(0.0,0.0);
 }
-document.addEventListener("DOMContentLoaded", ISSPassTimeReady);
+document.addEventListener("DOMContentLoaded", function(e)
+        {
+            setInterval(ISSPassTimeReady, 1000);
+            document.getElementById("hourformat").addEventListener("click", function(e)
+                    {
+                        hourformat = !hourformat;
+                    });
+        });
