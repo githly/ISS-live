@@ -71,7 +71,14 @@ div{
   height:19vh;
   width: 19vw;
 }
-
+#ClearMap{
+  position: absolute;
+  z-index: 200;
+  height: 3em;
+  width: 5em;
+  background-color: green;
+  color: white;
+}
 
 .wide.bottom, .wide.top{
   width: calc(100vw - 19vw - 19vw);
@@ -125,4 +132,4 @@ p {
 
 /* Forms */
 
-/* Media Queries */ 
+/* Media Queries */
