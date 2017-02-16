@@ -46,9 +46,10 @@ img {
 /* ---------------------------------------------------------------------------- General structure */
 
 
-body{
-    margin: 0;
-    padding: 0;
+html, body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 div{
@@ -67,32 +68,74 @@ div{
     height: 100vh;
     z-index: -1;
 }
-.right, .left, .top, .bottom{
-    height:19vh;
+
+.panel
+{
+    position: absolute;
     width: 19vw;
+    height: 19vh;
+    border: 5px solid black;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
 }
-
-
-.wide.bottom, .wide.top{
+#top, #bottom
+{
     width: calc(100vw - 19vw - 19vw);
-    left: 19vw;
+}
+#left, #right
+{
+    height: calc(100vh - 19vh - 19vh);
 }
 
-.wide.right, .wide.left{
-    height: calc(100vh - 19vh - 19vh);
-    top: 19vh;
+.panel button
+{
+    position: absolute;
+    width: 20px;
+    height: 20px;
 }
-.top{
-    top = O;
-}
-.right{
+#topleft button
+{
+    bottom: 0;
     right: 0;
 }
-.bottom{
+#topright button
+{
     bottom: 0;
-}
-.left{
     left: 0;
+}
+#bottomleft button
+{
+    top: 0;
+    right: 0;
+}
+#bottomright button
+{
+    top: 0;
+    left: 0;
+}
+#top button
+{
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%):
+}
+#bottom button
+{
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%):
+}
+#left button
+{
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%):
+}
+#right button
+{
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%):
 }
 
 .selected{

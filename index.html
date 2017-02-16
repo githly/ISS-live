@@ -8,23 +8,66 @@
         <title>ISS Live</title>
         <link rel="icon" type="image/x-icon" href="media/img/favicon.ico" />
         <link rel="stylesheet" type="text/css" media="screen" title="no title" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" media="screen" title="no title" href="css/animations.css" />
         <script type="text/javascript" src="js/gmaps.js"></script>
         <script type="text/javascript" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAG1j4xk810I0pIzZ3N6_GAg9D_120De8&callback=initMap"></script>
 
         <script type="text/javascript" src="js/ISSPassTime.js"></script>
         <script type="text/javascript" src="js/userPosition.js"></script>
+        <script type="text/javascript" src="js/panelTransformations.js"></script>
     </head>
     <body>
-        <div class="top left cache"></div>
-        <div class="top wide cache"></div>
-        <div class="top right cache"></div>
-        <div class="wide right cache"></div>
-        <div class="bottom right cache"></div>
-        <div class="bottom wide cache"></div>
-        <div class="bottom left cache"></div>
-        <div class="wide left cache"></div>
+        <div class="panel" id="topleft">
+        
+            <button class="transformButton">
+                
+            </button>
+        </div>
+        <div class="panel" id="topright">
+        
+            <button class="transformButton">
+                
+            </button>
+        </div>
+        <div class="panel" id="bottomleft">
+        
+            <button class="transformButton">
+                
+            </button>
+        </div>
+        <div class="panel" id="bottomright">
+        
+            <button class="transformButton">
+                
+            </button>
+        </div>
+        <div class="panel" id="top">
+        
+            <button class="transformButton">
+                
+            </button>
+        </div>
+        <div class="panel" id="bottom">
+        
+            <button class="transformButton">
+                
+            </button>
+        </div>
+        <div class="panel" id="left">
+        
+            <button class="transformButton">
+                
+            </button>
+        </div>
+        <div class="panel" id="right">
+        
+            <button class="transformButton">
+                
+            </button>
+        </div>
+
         <div id="map"></div>
-        <iframe src="" width="" height="" class="googleMap"></iframe>
+
         <div class="TEST" id="T1">
             <h2>
                 ISS Pass Time
