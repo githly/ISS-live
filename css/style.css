@@ -78,7 +78,7 @@ div{
     top: 19vh;
 }
 .top{
-    top = O;
+    top: 0;
 }
 .right{
     right: 0;
@@ -111,6 +111,11 @@ div{
     top: 50%;
     left: 0;
     transform: translateY(-50%);
+}
+#getISSPos
+{
+    top: 0;
+    left: 0;
 }
 
 /* ---------------------------------------------------------------------------- Structure des TItres */
