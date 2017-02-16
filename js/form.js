@@ -1,10 +1,20 @@
 'use strict'
+// Demarre le Js quand le DOM est chargé
+document.addEventListener("DOMContentLoaded", function(event) {
 
+  let lattitude =0;
+  let longitude = 0;
 // ecoute la validation du formulaire
-document.AddEventListenner("submit", form)
+  document.getElementById('form').addEventListener("submit", function (evt){
+    evt.preventDefault();
+    lattitude = document.getElementById('lattitude').value;// Recupere la lattitude
+    longitude = document.getElementById('longitude').value; // Recupere la longitude
+    console.log(lattitude);
+    console.log(longitude);
+  });
 
-let form = function {
-  e.PreventDefault();
-  let lattitude = document.write(document.getElementById('lattitude').value); // Recupere la lattitude
-  let longitude = document.write(document.getElementById('longitude').value); // Recupere la longitude
-}
+
+
+
+
+}); // End DOMContentLoaded
