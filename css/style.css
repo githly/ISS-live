@@ -1,4 +1,3 @@
-/* ---------------------------------------------------------------------------- Reset User Agent */
 /*To remove any margin or border, reset font size & font style, reset the vertical alignment to its default value*/
 html, body, div, span, applet,
 p, blockquote,
@@ -43,10 +42,7 @@ img {
     max-width: 100%;
 }
 
-/* ---------------------------------------------------------------------------- General structure */
-
-
-div{
+div, form{
     position: absolute;
     box-sizing: border-box;
 
@@ -66,7 +62,14 @@ div{
     height:19vh;
     width: 19vw;
 }
-
+#ClearMap{
+  position: absolute;
+  z-index: 200;
+  height: 3em;
+  width: 5em;
+  background-color: green;
+  color: white;
+}
 
 .wide.bottom, .wide.top{
     width: calc(100vw - 19vw - 19vw);
@@ -140,12 +143,7 @@ p {
 
 }
 
-/* ---------------------------------------------------------------------------- Elements */
 
-/* ---------------------------------------------------------------------------- Forms */
 
-form {
-  position: absolute;
-}
-
+/* Media Queries */
 /* ---------------------------------------------------------------------------- Media Queries */
