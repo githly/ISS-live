@@ -12,13 +12,10 @@ const initISSPos = function(data){
 }
 const printISSPos = function(data){
     if(data.message==="success"){
-        let divTopLeft = document.getElementById('getISSPos');
-        let newUl = document.createElement("ul");
-        divTopLeft.innerHTML = null;
-        let ulISS = divTopLeft.appendChild(newUl);
-        for(let key in data.iss_position){
-            ulISS.innerHTML += "<li>"+data.iss_position[key]+"</li>";
-        }
+        let latitude = document.getElementById('getISSLatitude');
+        let longitude = document.getElementById('getISSLongitude');
+        latitude.textContent = data.iss_position['latitude'];
+        longitude.textContent = data.iss_position['longitude'];
     }
 }
 document.addEventListener("DOMContentLoaded",function() {
