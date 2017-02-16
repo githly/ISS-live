@@ -1,0 +1,113 @@
+#topleft
+{
+    top: 0;
+    left: 0;
+    transition-property: top left;
+    transition-duration: 2s;
+}
+#topright
+{
+    top: 0;
+    right: 0;
+    transition-property: top right;
+    transition-duration: 2s;
+}
+#bottomleft
+{
+    bottom: 0;
+    left: 0;
+    transition-property: bottom left;
+    transition-duration: 2s;
+}
+#bottomright
+{
+    bottom: 0;
+    right: 0;
+    transition-property: bottom right;
+    transition-duration: 2s;
+}
+#top
+{
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition-property: top;
+    transition-duration: 2s;
+}
+#bottom
+{
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition-property: bottom;
+    transition-duration: 2s;
+}
+#left
+{
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    transition-property: left;
+    transition-duration: 2s;
+}
+#right
+{
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    transition-property: right;
+    transition-duration: 2s;
+}
+
+#topleft.hidden
+{
+    top: calc(20px + 5px - 19vh);
+    left: calc(20px + 5px - 19vw);
+    transition-property: top left;
+    transition-duration: 2s;
+}
+#topright.hidden
+{
+    top: calc(20px + 5px - 19vh);
+    right: calc(20px + 5px - 19vw);
+    transition-property: top right;
+    transition-duration: 2s;
+}
+#bottomleft.hidden
+{
+    bottom: calc(20px + 5px - 19vh);
+    left: calc(20px + 5px - 19vw);
+    transition-property: bottom left;
+    transition-duration: 2s;
+}
+#bottomright.hidden
+{
+    bottom: calc(20px + 5px - 19vh);
+    right: calc(20px + 5px - 19vw);
+    transition-property: bottom right;
+    transition-duration: 2s;
+}
+#top.hidden
+{
+    top: calc(20px + 5px - 19vh);
+    transition-property: top;
+    transition-duration: 2s;
+}
+#bottom.hidden
+{
+    bottom: calc(20px + 5px - 19vh);
+    transition-property: bottom;
+    transition-duration: 2s;
+}
+#left.hidden
+{
+    left: calc(20px + 5px - 19vw);
+    transition-property: left;
+    transition-duration: 2s;
+}
+#right.hidden
+{
+    right: calc(20px + 5px - 19vw);
+    transition-property: right;
+    transition-duration: 2s;
+}
