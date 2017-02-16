@@ -1,9 +1,10 @@
 'use strict'
 
-// Recupere les champs input
+// ecoute la validation du formulaire
 document.AddEventListenner("submit", form)
 
 let form = function {
-  document.write(document.getElementById('lattitude').value);
-  document.write(document.getElementById('longitude').value);
+  e.PreventDefault();
+  let lattitude = document.write(document.getElementById('lattitude').value); // Recupere la lattitude
+  let longitude = document.write(document.getElementById('longitude').value); // Recupere la longitude
 }
