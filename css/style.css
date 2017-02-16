@@ -46,11 +46,6 @@ img {
 /* ---------------------------------------------------------------------------- General structure */
 
 
-body{
-    margin: 0;
-    padding: 0;
-}
-
 div{
     position: absolute;
     box-sizing: border-box;
