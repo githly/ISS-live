@@ -12,6 +12,7 @@
         <script type="text/javascript" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAG1j4xk810I0pIzZ3N6_GAg9D_120De8&callback=initMap"></script>
 
         <script type="text/javascript" src="js/ISSPassTime.js"></script>
+        <script type="text/javascript" src="js/userPosition.js"></script>
     </head>
     <body>
         <div class="top left cache"></div>
@@ -24,7 +25,10 @@
         <div class="wide left cache"></div>
         <div id="map"></div>
         <iframe src="" width="" height="" class="googleMap"></iframe>
-        <div id="TEST">
+        <div class="TEST" id="T1">
+            <h2>
+                ISS Pass Time
+            </h2>
             <p>
                 Time
             </p>
@@ -38,6 +42,19 @@
             </p>
             <p id="duration"></p>
             <button id="hourformat">Change Hour Format</button>
+        </div>
+        <div class="TEST" id="T2">
+            <h2>
+                User Position
+            </h2>
+            <p>
+                Latitude
+            </p>
+            <p id="userLatitude"></p>
+            <p>
+                Longitude
+            </p>
+            <p id="userLongitude"></p>
         </div>
     </body>
 </html>

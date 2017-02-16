@@ -99,16 +99,23 @@ div{
     color: black;
 }
 
-#TEST
+.TEST
 {
     position: absolute;
+    border: 5px solid black;
+    background-color: #FFFFFF;
+}
+#T1
+{
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    min-width: 100px;
-    min-height: 100px;
-    border: 5px solid black;
-    background-color: #FFFFFF;
+}
+#T2
+{
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
 }
 
 /* ---------------------------------------------------------------------------- Structure des TItres */
