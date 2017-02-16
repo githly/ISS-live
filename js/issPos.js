@@ -19,8 +19,6 @@ const printISSPos = function(data){
         for(let key in data.iss_position){
             ulISS.innerHTML += "<li>"+data.iss_position[key]+"</li>";
         }
-        divTopLeft.style.color = "white";
-        divTopLeft.style.zIndex = 10;
     }
 }
 document.addEventListener("DOMContentLoaded",function() {
