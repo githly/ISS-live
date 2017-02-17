@@ -44,7 +44,9 @@ img {
 }
 
 /* ---------------------------------------------------------------------------- General structure */
-
+html, body{
+    overflow: hidden;
+}
 
 div{
     position: absolute;
@@ -62,33 +64,84 @@ div{
     height: 100vh;
     z-index: -1;
 }
-.right, .left, .top, .bottom{
-    height:19vh;
+
+.panel
+{
+    position: absolute;
     width: 19vw;
+    height: 19vh;
+    border: 5px solid black;
+    box-sizing: border-box;
 }
-
-
-.wide.bottom, .wide.top{
+#top, #bottom
+{
     width: calc(100vw - 19vw - 19vw);
-    left: 19vw;
+}
+#left, #right
+{
+    height: calc(100vh - 19vh - 19vh);
 }
 
-.wide.right, .wide.left{
-    height: calc(100vh - 19vh - 19vh);
-    top: 19vh;
+.panel .transformButton
+{
+    position: absolute;
+    width: 20px;
+    height: 20px;
 }
-.top{
-    top: 0;
-}
-.right{
+#topleft .transformButton
+{
+    bottom: 0;
     right: 0;
 }
-.bottom{
+#topright .transformButton
+{
     bottom: 0;
-}
-.left{
     left: 0;
 }
+#bottomleft .transformButton
+{
+    top: 0;
+    right: 0;
+}
+#bottomright .transformButton
+{
+    top: 0;
+    left: 0;
+}
+#top .transformButton
+{
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%):
+}
+#bottom .transformButton
+{
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%):
+}
+#left .transformButton
+{
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%):
+}
+#right .transformButton
+{
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%):
+}
+
+#transformButton
+{
+    position: absolute;
+    bottom: calc(20vh + 20px);
+    right: calc(20vw + 20px);
+    width: 20px;
+    height: 20px;
+}
+
 
 .selected{
     color: black;
@@ -100,22 +153,26 @@ div{
     border: 5px solid black;
     background-color: #FFFFFF;
 }
-#T1
+#TF
 {
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
 }
-#T2
+#TT
 {
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
+    bottom: 20%;
+    right: 20%;
 }
-#getISSPos
+#TUP
 {
-    top: 0;
-    left: 0;
+    bottom: 20%;
+    left: 20%;
+}
+#TIP
+{
+    top: 20%;
+    left: 20%;
 }
 
 /* ---------------------------------------------------------------------------- Structure des TItres */
@@ -143,9 +200,5 @@ p {
 /* ---------------------------------------------------------------------------- Elements */
 
 /* ---------------------------------------------------------------------------- Forms */
-
-form {
-  position: absolute;
-}
 
 /* ---------------------------------------------------------------------------- Media Queries */

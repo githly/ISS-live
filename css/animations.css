@@ -1,0 +1,100 @@
+#topleft
+{
+    top: 0;
+    left: 0;
+}
+#topright
+{
+    top: 0;
+    right: 0;
+}
+#bottomleft
+{
+    bottom: 0;
+    left: 0;
+}
+#bottomright
+{
+    bottom: 0;
+    right: 0;
+}
+#top
+{
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#bottom
+{
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#left
+{
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+#right
+{
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+#topleft.hidden
+{
+    top: calc(20px + 5px - 19vh);
+    left: calc(20px + 5px - 19vw);
+}
+#topright.hidden
+{
+    top: calc(20px + 5px - 19vh);
+    right: calc(20px + 5px - 19vw);
+}
+#bottomleft.hidden
+{
+    bottom: calc(20px + 5px - 19vh);
+    left: calc(20px + 5px - 19vw);
+}
+#bottomright.hidden
+{
+    bottom: calc(20px + 5px - 19vh);
+    right: calc(20px + 5px - 19vw);
+}
+#top.hidden
+{
+    top: calc(20px + 5px - 19vh);
+}
+#bottom.hidden
+{
+    bottom: calc(20px + 5px - 19vh);
+}
+#left.hidden
+{
+    left: calc(20px + 5px - 19vw);
+}
+#right.hidden
+{
+    right: calc(20px + 5px - 19vw);
+}
+
+.panel
+{
+    background-color: rgba(255,255,255, 1);
+    transition-property: all;
+    transition-duration: 2s;
+}
+.panel.cloaked
+{
+    background-color: rgba(0,0,0, 1);
+}
+
+#transformButton
+{
+    bottom: 19vh;
+    right: 19vw;
+    width: 20px;
+    height: 20px;
+}
