@@ -12,22 +12,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     console.log(latitude);
     console.log(longitude);
 
-    /*document.getElemntsbyClassName('selected')
-    document.getElementById("form").elements["latitude"].value = '1234567';
-
-    if {
-
-    }*/
-    // Select
-
-    // Injecter les valeur dans les input
-    /*if {
-      document.getElemntsbyClassName('selected').options.index
-    }
-
-    document.getElementById("form").options[document.getElemntsbyClassName('selected').selectedIndex].text;*/
-
-
   });// End Submit
   // tableau double dimension
   let getPlaces = function () {
