@@ -13,7 +13,7 @@
         <script type="text/javascript" src="js/form.js" charset="utf-8"></script>
         <script type="text/javascript" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAG1j4xk810I0pIzZ3N6_GAg9D_120De8&callback=initMap"></script>
         <script type="text/javascript" src="js/ISSPassTime.js"></script>
-        <script type="text/javascript" src="js/issPos.js"></script>
+        <script type="text/javascript" src="js/ISSPosition.js"></script>
         <script type="text/javascript" src="js/userPosition.js"></script>
         <script type="text/javascript" src="js/panelTransformations.js"></script>
     </head>
@@ -101,16 +101,16 @@
         </div>
         <div class="TEST" id="TUP">
             <h2>
-                User Position
+                ISS position
             </h2>
             <p>
-            Latitude
-            </p>
-            <p id="userLatitude"></p>
+            Latitude :
+            <span id="userLatitude"></span>
             <p>
-            Longitude
-            </p>
-            <p id="userLongitude"></p>
+            <p>
+            Longitude :
+            <span id="userLongitude"></span>
+            <p>
         </div>
         <div class="TEST" id="TIP">
             <h2>
@@ -118,11 +118,11 @@
             </h2>
             <p>
             Latitude :
-            <span id="getISSLatitude"></span>
+            <span id="ISSLatitude"></span>
             <p>
             <p>
             Longitude :
-            <span id="getISSLongitude"></span>
+            <span id="ISSLongitude"></span>
             <p>
         </div>
     </body>
