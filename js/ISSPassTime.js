@@ -1,5 +1,10 @@
 let hourformat = false;
 
+function n(n)
+{
+    return n > 9 ? "" + n: "0" + n;
+}
+
 const callISSPassTimeScript = function(lat, lon)
 {
     if(lat == 0) lat++;
@@ -22,7 +27,7 @@ const convertDate = function(d)
 
     let year = d.getFullYear();
     let month = months[d.getMonth()];
-    let date = d.getDate();
+    let date = n(d.getDate());
     let hour = d.getHours();
     let pm = false;
     if(hourformat) {
@@ -33,8 +38,9 @@ const convertDate = function(d)
             hour = 12;
         }
     }
-    let min = d.getMinutes();
-    let sec = d.getSeconds();
+    hour = n(hour);
+    let min = n(d.getMinutes());
+    let sec = n(d.getSeconds());
     let time = date + '-' + month + '-' + year + ' ' + hour + ':' + min + ':' + sec ;
     if(hourformat) {
         if(pm) {
@@ -47,12 +53,13 @@ const convertDate = function(d)
 }
 const convertDuration = function(d)
 {
-    let time = d;
-    let hour = Math.floor(time/3600);
-    time = Math.abs(time%3600);
-    let min = Math.floor(time/60);
+    let time = Math.abs(d);
+    let hour = n(Math.floor(time/3600));
+    if(d<0) hour = "-" + hour;
+    time = time%3600;
+    let min = n(Math.floor(time/60));
     time = time%60;
-    let sec = time;
+    let sec = n(time);
     time = hour +":"+ min +":"+ sec;
     return time;
 }
