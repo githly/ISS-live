@@ -49,7 +49,7 @@ const convertDuration = function(d)
 {
     let time = d;
     let hour = Math.floor(time/3600);
-    time = time%3600;
+    time = Math.abs(time%3600);
     let min = Math.floor(time/60);
     time = time%60;
     let sec = time;
