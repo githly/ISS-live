@@ -9,7 +9,6 @@ class Panel
         this.slaves = [];
     }
 }
-
 let PANELS = new Array();
 
 const searchObject = function(elem)
@@ -18,6 +17,13 @@ const searchObject = function(elem)
         if(PANELS[item].elem == elem) return PANELS[item];
     }
 }
+const savePanelsConfig = function()
+{
+    for(let item in PANELS) {
+        localStorage.setItem(PANELS[item].elem.id, PANELS[item].elem.classList);
+    }
+}
+
 const obeyYourMaster = function(obj)
 {
     if(obj.elem.classList.contains("hidden")) return true;
@@ -50,15 +56,14 @@ const moveYourSlaves = function(obj)
         }
     }
 }
+
 const panelTransform = function(e)
 {
     let obj = searchObject(e.target.parentNode);
     if(obeyYourMaster(obj)) {
         obj.elem.classList.toggle("hidden");
         if(obj.masters.length!=0) {
-            if(obj.elem.classList.contains("hidden")) {
-                obj.elem.classList.add("cloaked");
-            } else {
+            if(!obj.elem.classList.contains("hidden")) {
                 obj.elem.classList.remove("cloaked");
             }
         }
@@ -66,6 +71,7 @@ const panelTransform = function(e)
         obj.elem.classList.toggle("cloaked");
     }
     moveYourSlaves(obj);
+    savePanelsConfig();
 }
 const panelTransformReady = function()
 {
@@ -95,6 +101,19 @@ const panelTransformReady = function()
     document.getElementById("bottom").getElementsByClassName("transformButton")[0].addEventListener("click", panelTransform);
     document.getElementById("left").getElementsByClassName("transformButton")[0].addEventListener("click", panelTransform);
     document.getElementById("right").getElementsByClassName("transformButton")[0].addEventListener("click", panelTransform);
+
+    document.getElementById("transformButton").addEventListener("click", function(e)
+            {
+                e.target.classList.toggle("active");
+                for(let item in PANELS) {
+                    if(e.target.classList.contains("active")) {
+                        PANELS[item].elem.classList.add("hidden");
+                    } else {
+                        PANELS[item].elem.classList.remove("hidden");
+                        PANELS[item].elem.classList.remove("cloaked");
+                    }
+                }
+            });
 }
 document.addEventListener("DOMContentLoaded", function()
         {

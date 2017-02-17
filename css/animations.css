@@ -90,3 +90,11 @@
 {
     background-color: rgba(0,0,0, 1);
 }
+
+#transformButton
+{
+    bottom: 19vh;
+    right: 19vw;
+    width: 20px;
+    height: 20px;
+}

@@ -135,6 +135,16 @@ div{
     transform: translateY(-50%):
 }
 
+#transformButton
+{
+    position: absolute;
+    bottom: calc(20vh + 20px);
+    right: calc(20vw + 20px);
+    width: 20px;
+    height: 20px;
+}
+
+
 .selected{
     color: black;
 }
