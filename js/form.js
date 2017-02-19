@@ -1,9 +1,13 @@
 'use strict'
+
+let latitude = 0;
+let longitude = 0;
+let SimplonLatitude = 43.342396;
+let SimplonLongitude = 5.437168;
 // Demarre le Js quand le DOM est chargé
 document.addEventListener("DOMContentLoaded", function(event) {
 
-    let latitude =0;
-    let longitude = 0;
+    
     // ecoute la validation du formulaire
     document.getElementById('form').addEventListener("submit", function (evt){
 
@@ -13,25 +17,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         console.log(longitude);
 
     });// End Submit
-    // tableau double dimension
-    /*let getPlaces = function () {
-    // INitialise les paramètres de l'objet
-    let places = function (name, latitude, longitude){
-    this.name=name;
-    this.latitude=latitude;
-    this.longitude=longitude;
-    }
-    // definir les objets
-    let MARSEILLE = new places("MARSEILLE", 12345, 5678);
-    let NY = new places("NY", 8745, 35689);
-    let PERTH = new places("PERTH", 8745, 35689);
-    let PAP = new places("PAP", 8745, 35689);
-    let BA = new places("BA", 8745, 35689);
-    let CC = new places("CC", 8745, 35689);
-    // Ajouter les objets au tableau
-    let selectList = [MARSEILLE, NY, PERTH, PAP, BA, CC];
-    return selectList;
-    }*/
     // ecoute l'élement select et si il change ...
     /*document.getElementById('select').addEventListener("change", function (evt){
 
@@ -53,10 +38,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
       }
 
       }); // end CHange*/
+	  
+	  
     const PLACES = buildPlaces();
-    let list = document.getElementById("countries");
     for(let i in PLACES) {
-        list.options.add(new Option(PLACES[i].country, i));
+        document.getElementById("countries").options.add(new Option(PLACES[i].country, i));
     }
 
 
@@ -78,8 +64,28 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     modelList.options.add(city);
                 }
             }
-        }
-    });
+		} else {
+			document.getElementById("latitude").value = SimplonLatitude;
+			document.getElementById("longitude").value = SimplonLongitude;
+		}
+    });// End Change
+	document.getElementById('cities').addEventListener("change", function (e)
+	{
+		let list = document.getElementById("countries");
+		let listC = document.getElementById("cities");
+		let CountrySelect = list.options[list.selectedIndex].value;
+		let CitySelect = listC.options[listC.selectedIndex].value;
+		if (CitySelect != "city"){
+			let lat = PLACES[CountrySelect].cities[CitySelect].lat;
+			let lon = PLACES[CountrySelect].cities[CitySelect].lon;
+			document.getElementById("latitude").value = lat;
+			document.getElementById("longitude").value = lon;	
+		} else {
+			document.getElementById("latitude").value = SimplonLatitude;
+			document.getElementById("longitude").value = SimplonLongitude;
+		}
+		
+	});// End Change
 
     // clear le formulaire
     document.getElementById('clear').addEventListener("click", function (evt){
