@@ -153,26 +153,49 @@ div{
     border: 5px solid black;
     background-color: #FFFFFF;
 }
-#TF
+#title
 {
-    bottom: 10%;
+    top: 5%;
     left: 50%;
     transform: translateX(-50%);
 }
-#TT
+#Dform
 {
-    bottom: 20%;
-    right: 20%;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
 }
-#TUP
+#ISSPassTime
 {
-    bottom: 20%;
-    left: 20%;
+    bottom: 5%;
+    right: 5%;
 }
-#TIP
+#UserPosition
 {
-    top: 20%;
-    left: 20%;
+    bottom: 5%;
+    left: 5%;
+}
+#ISSPosition
+{
+    top: 5%;
+    left: 5%;
+}
+#twitter
+{
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+}
+#credits
+{
+    top: 50%;
+    left: 5%;;
+    transform: translateY(-50%);
+}
+#camera
+{
+    top: 5%;
+    right: 5%;
 }
 
 /* ---------------------------------------------------------------------------- Structure des TItres */
