@@ -20,7 +20,7 @@ const buildPlaces = function()
             }
         }
     }
-
+/*
     insertPlaces({country:"Afghanistan",city:"Qal eh-ye Now",lat:"34.983",lon:"63.1333"});
     insertPlaces({country:"Afghanistan",city:"Chaghcharan",lat:"34.5167",lon:"65.25"});
     insertPlaces({country:"Afghanistan",city:"Lashkar Gah",lat:"31.583",lon:"64.36"});
@@ -7343,7 +7343,11 @@ const buildPlaces = function()
     insertPlaces({country:"Zimbabwe",city:"Chitungwiza",lat:"-18",lon:"31.1"});
     insertPlaces({country:"Zimbabwe",city:"Harare",lat:"-17.8178",lon:"31.0447"});
     insertPlaces({country:"Zimbabwe",city:"Bulawayo",lat:"-20.17",lon:"28.58"});
-
+*/
+insertPlaces({country:"Zimbabwe",city:"Harare",lat:"-17.8178",lon:"31.0447"});
+    insertPlaces({country:"Zimbabwe",city:"Bulawayo",lat:"-20.17",lon:"28.58"});
+	insertPlaces({country:"Yemen",city:"Sayhut",lat:"15.2105",lon:"51.2454"});
+    insertPlaces({country:"Yemen",city:"Al Mukalla",lat:"14.5412",lon:"49.1259"});
     for(let c in arrayCountries) {
         arrayCountries[c].cities.sort(function(a,b) {return (a.city > b.city) ? 1 : -1;} );
     }

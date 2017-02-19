@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   });// End Submit
   // tableau double dimension
-  let getPlaces = function () {
+  /*let getPlaces = function () {
     // INitialise les paramètres de l'objet
         let places = function (name, latitude, longitude){
           this.name=name;
@@ -31,9 +31,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
         // Ajouter les objets au tableau
         let selectList = [MARSEILLE, NY, PERTH, PAP, BA, CC];
         return selectList;
-      }
+      }*/
       // ecoute l'élement select et si il change ...
-document.getElementById('select').addEventListener("change", function (evt){
+/*document.getElementById('select').addEventListener("change", function (evt){
 
 
 let select = document.getElementById('select');
@@ -52,7 +52,38 @@ let place = getPlaces();
 
   }
 
-}); // end CHange
+}); // end CHange*/
+document.getElementById('countries').addEventListener("change", function (evt){
+const PLACES = buildPlaces();
+let list = document.getElementById("countries");
+for(let i in PLACES) {
+    list.options.add(new Option(PLACES[i].country, i));
+}
+
+function ChangeList()
+{
+    let list = document.getElementById("countries");
+    let modelList = document.getElementById("cities");
+    while(modelList.options.length) {
+        modelList.remove(0);
+    }
+    modelList.options.add(new Option("-- City --", "city"));
+
+    let sel = list.options[list.selectedIndex].value;
+    if(sel != "country") {
+        let cities = PLACES[sel].cities;
+        if (cities) {
+            var city;
+            for (let i in cities) {
+                city = new Option(cities[i].city, i);
+                modelList.options.add(city);
+            }
+        }
+    }
+}
+
+
+});
 
   // clear le formulaire
   document.getElementById('clear').addEventListener("click", function (evt){

@@ -8,6 +8,7 @@
         <title>ISS Live</title>
         <link rel="icon" type="image/x-icon" href="media/img/favicon.ico" />
         <link rel="stylesheet" type="text/css" media="screen" title="no title" href="css/style.css" />
+		<script type="text/javascript" src="places.js"></script>
         <script type="text/javascript" src="js/gmaps.js"></script>
         <script type="text/javascript" src="js/form.js" charset="utf-8"></script>
         <script type="text/javascript" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAG1j4xk810I0pIzZ3N6_GAg9D_120De8&callback=initMap"></script>
@@ -32,15 +33,16 @@
             <input id="latitude" type="number" name="latitude" value="" placeholder="latitude">
             <label for="longitude"></label>
             <input id="longitude" type="number" name="longitude" value="" placeholder="longitude">
-            <select id='select' name="select">
-              <option value="" selected>Choisir une ville</option>
-              <option value="MARSEILLE">Marseille, Big UP si si la famille ! wesheuuuu </option>
-              <option value="NY" >New York, USA</option>
-              <option value="PERTH">Perth, Australie</option>
-              <option value="PAP">Point à Pitre, France</option>
-              <option value="BA">Buenos Aires, ARG</option>
-              <option value="CC">Christ CHurch, NZ</option>
-            </select>
+			
+			
+			<select id="countries" onchange="ChangeList()">
+            <option value="country">-- Country --</option>
+			</select>
+
+        <select id="cities">
+            <option value="city">-- City --</option>
+        </select>
+			
             <input type="submit" name="name" value="Submit">
             <input id="clear" type="button" name="name" value="Clear">
           </form>
