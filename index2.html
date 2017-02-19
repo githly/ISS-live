@@ -1,16 +1,45 @@
-<!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Projet SIMPLonMARS3 - ">
-        <meta name="author" content="Kevin">
-        <title>TEMPLATE</title>
-
         <script src="places.js"></script>
-
     </head>
     <body>
 
+        <select id="countries" onchange="ChangeList()">
+            <option value="country">-- Country --</option>
+        </select>
+
+        <select id="cities">
+            <option value="city">-- City --</option>
+        </select>
+
+        <script>
+const PLACES = buildPlaces();
+let list = document.getElementById("countries");
+for(let i in PLACES) {
+    list.options.add(new Option(PLACES[i].country, i));
+}
+
+function ChangeList()
+{
+    let list = document.getElementById("countries");
+    let modelList = document.getElementById("cities");
+    while(modelList.options.length) {
+        modelList.remove(0);
+    }
+    modelList.options.add(new Option("-- City --", "city"));
+
+    let sel = list.options[list.selectedIndex].value;
+    if(sel != "country") {
+        let cities = PLACES[sel].cities;
+        if (cities) {
+            var city;
+            for (let i in cities) {
+                city = new Option(cities[i].city, i);
+                modelList.options.add(city);
+            }
+        }
+    }
+}
+        </script>
     </body>
 </html>
