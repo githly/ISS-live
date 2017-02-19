@@ -9,6 +9,7 @@
         <link rel="icon" type="image/x-icon" href="media/img/favicon.ico" />
         <link rel="stylesheet" type="text/css" media="screen" title="no title" href="css/style.css" />
         <link rel="stylesheet" type="text/css" media="screen" title="no title" href="css/animations.css" />
+        <script type="text/javascript" src="js/places.js"></script>
         <script type="text/javascript" src="js/gmaps.js"></script>
         <script type="text/javascript" src="js/form.js" charset="utf-8"></script>
         <script type="text/javascript" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAG1j4xk810I0pIzZ3N6_GAg9D_120De8&callback=initMap"></script>
@@ -77,14 +78,26 @@
             </h1>
         </div>
         <div class="TEST" id="Dform">
-            <form id="form" method="post">
-                <label for="lattitude"></label>
-                <input id="lattitude" type="number" name="lattitude" value="" placeholder="lattitude">
+            <form id="form">
+			<fieldset>
+                <label for="latitude"></label>
+                <input id="latitude" type="number" name="latitude" value="" placeholder="latitude">
                 <label for="longitude"></label>
                 <input id="longitude" type="number" name="longitude" value="" placeholder="longitude">
+			</fieldset>
+			<fieldset>
+                <select id="countries">
+                    <option value="country">-- Country --</option>
+                </select>
+
+                <select id="cities">
+                    <option value="city">-- City --</option>
+                </select>
+			</fieldset>
                 <input type="submit" name="name" value="Submit">
-                <input type="button" name="name" value="Clear">
+                <input id="clear" type="button" name="name" value="Clear">
             </form>
+
         </div>
         <div class="TEST" id="ISSPassTime">
             <h2>
