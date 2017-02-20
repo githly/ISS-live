@@ -48,6 +48,7 @@ html, body{
 }
 
 #map{
+    position: absolute;
     top: 0vh;
     left: 0vw;
     width: 100vw;

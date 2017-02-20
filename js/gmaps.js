@@ -3,70 +3,64 @@
 // The user can then click an option to hide, show or delete the markers.
 var map;
 var markers = [];
+let ISSPositions = [];
+let markerUser = "";
+let markerISS = "";
+let markerSimplon = "";
+
+var SIMPLonMARS = {
+    lat: SimplonLatitude,
+    lng: SimplonLongitude
+};
 
 function initMap() {
-    var SIMPLonMARS = {
-        lat: 43.342052,
-        lng: 5.438830
-    };
     map = new google.maps.Map(document.getElementById('map'), {
         center: SIMPLonMARS,
-        zoom: 18,
+        zoom: 2,
         disableDefaultUI: true
     });
 
     // This event listener will call addMarker() when the map is clicked.
     map.addListener('click', function(event) {
-        addMarker(event.latLng);
+        addMarker("user", event.latLng);
     });
 
     // Adds a marker at the center of the map.
-    addMarker(SIMPLonMARS);
-
-    // clear markers on click
-    var ClearMapBtt = document.getElementById('ClearMap')
-    ClearMapBtt.addEventListener('click', function(event) {
-      deleteMarkers();
-    });
+    addMarker("default", SIMPLonMARS);
 }
 
 // Adds a marker to the map and push to the array.
-function addMarker(location) {
+function addMarker(index, location)
+{
     var marker = new google.maps.Marker({
         position: location,
         map: map
     });
-    deleteMarkers();
-    markers.push(marker);
-
-}
-
-// Sets the map on all markers in the array.
-function setMapOnAll(map) {
-    for (var i = 0; i < markers.length; i++) {
-        markers[i].setMap(map);
+    switch(index) {
+        case "user":
+            markerUser = marker;
+            break;
+        case "default":
+            markerSimplon = marker;
+            break;
+        case "iss":
+            markerISS = marker;
+            ISSPosition.unshift(location);
+            if(ISSPositions.length > 3600) {
+                ISSPositions.pop();
+            }
+            break;
     }
-}
-
-// Removes the markers from the map, but keeps them in the array.
-function clearMarkers() {
     setMapOnAll(null);
-}
-
-// Shows any markers currently in the array.
-function showMarkers() {
+    markers = [];
+    if(markerUser != "") markers.push(markerUser);
+    if(markerSimplon != "") markers.push(markerSimplon);
+    if(markerISS != "") markers.push(markerISS);
     setMapOnAll(map);
 }
 
-// Deletes all markers in the array by removing references to them.
-function deleteMarkers() {
-    clearMarkers();
-    markers = [];
-  var mapOptions = {
-    zoom: 2,
-    center: {lat: SimplonLatitude, lng: SimplonLongitude},
-    disableDefaultUI: true
-  }
-  var map = new google.maps.Map(document.getElementById("map"),
-       mapOptions);
+function setMapOnAll(map) {
+    for (var i in markers) {
+        markers[i].setMap(map);
+    }
 }
