@@ -16,5 +16,3 @@ var SIMPLonMARS =
     lat: SIMPLonLat,
     lng: SIMPLonLng
 };
-
-
