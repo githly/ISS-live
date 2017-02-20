@@ -10,7 +10,7 @@ const callISSPassTimeScript = function(lat, lon)
     if(lat == 0) lat++;
     if(lon == 0) lon++;
     const script = document.createElement("script");
-    script.setAttribute("src", "http://api.open-notify.org/iss-pass.json?lat="+lat.toFixed(1)+"&lon="+lon.toFixed(1)+"&n=1&callback=ISSPassTimeScriptCallback");
+    script.setAttribute("src", "http://api.open-notify.org/iss-pass.json?lat="+latitude.toFixed(4)+"&lon="+longitude.toFixed(4)+"&n=1&callback=ISSPassTimeScriptCallback");
     document.body.appendChild(script);
     script.parentNode.removeChild(script);
 }
@@ -83,6 +83,7 @@ const ISSPassTimeReady = function()
 }
 document.addEventListener("DOMContentLoaded", function(e)
         {
+            ISSPassTimeReady();
             setInterval(ISSPassTimeReady, 1000);
             document.getElementById("hourformat").addEventListener("click", function(e)
                     {
