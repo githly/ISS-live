@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             document.getElementById("longitude").value = SimplonLongitude;
         }
     });// End Change
+
     document.getElementById('cities').addEventListener("change", function (e)
             {
                 let list = document.getElementById("countries");
@@ -57,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     let lat = PLACES[CountrySelect].cities[CitySelect].lat;
                     let lon = PLACES[CountrySelect].cities[CitySelect].lon;
                     document.getElementById("latitude").value = lat;
-                    document.getElementById("longitude").value = lon;	
+                    document.getElementById("longitude").value = lon;
                 } else {
                     document.getElementById("latitude").value = SimplonLatitude;
                     document.getElementById("longitude").value = SimplonLongitude;
@@ -68,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // clear le formulaire
     document.getElementById('clear').addEventListener("click", function (evt){
         document.getElementById('form').reset();
-    });
+    }); // End Click
 
 
 
