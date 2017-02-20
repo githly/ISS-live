@@ -8,85 +8,160 @@
         <title>ISS Live</title>
         <link rel="icon" type="image/x-icon" href="media/img/favicon.ico" />
         <link rel="stylesheet" type="text/css" media="screen" title="no title" href="css/style.css" />
-        <script type="text/javascript" src="js/gmaps.js"></script>
+        <link rel="stylesheet" type="text/css" media="screen" title="no title" href="css/animations.css" />
+        <script type="text/javascript" src="js/places.js"></script>
         <script type="text/javascript" src="js/form.js" charset="utf-8"></script>
-        <script type="text/javascript" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAG1j4xk810I0pIzZ3N6_GAg9D_120De8&callback=initMap"></script>
         <script type="text/javascript" src="js/ISSPassTime.js"></script>
-        <script type="text/javascript" src="js/issPos.js"></script>
+        <script type="text/javascript" src="js/ISSPosition.js"></script>
         <script type="text/javascript" src="js/userPosition.js"></script>
+        <script type="text/javascript" src="js/panelTransformations.js"></script>
+        <script type="text/javascript" src="js/gmaps.js"></script>
+        <script type="text/javascript" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAG1j4xk810I0pIzZ3N6_GAg9D_120De8&callback=initMap"></script>
     </head>
     <body>
-        <div class="top left cache"></div>
-        <div class="top wide cache"></div>
-        <div class="top right cache"></div>
-        <div class="wide right cache"></div>
-        <div class="bottom right cache"></div>
-        <div class="bottom wide cache"></div>
-        <div class="bottom left cache"></div>
-        <div class="wide left cache"></div>
-        <div id="map"></div>
-<<<<<<< HEAD
-        <p id="ClearMap">
-          ClearMap
-        </p>
-=======
-        <iframe src="" width="" height="" class="googleMap"></iframe>
-        <div class="TEST" ID="TF">
-          <form class="TEST" id="form" class="" action="index.html" method="post">
-            <label for="lattitude"></label>
-            <input id="lattitude" type="number" name="lattitude" value="" placeholder="lattitude">
-            <label for="longitude"></label>
-            <input id="longitude" type="number" name="longitude" value="" placeholder="longitude">
-            <input type="submit" name="name" value="Submit">
-            <input type="button" name="name" value="Clear">
+        <div class="panel" id="topleft">
 
-          </form>
+            <button class="transformButton">
 
+            </button>
         </div>
-          <div class="TEST" id="T1">
-              <h2>
-                  ISS Pass Time
-              </h2>
+        <div class="panel" id="topright">
+
+            <button class="transformButton">
+
+            </button>
+        </div>
+        <div class="panel" id="bottomleft">
+
+            <button class="transformButton">
+
+            </button>
+        </div>
+        <div class="panel" id="bottomright">
+
+            <button class="transformButton">
+
+            </button>
+        </div>
+        <div class="panel" id="top">
+
+            <button class="transformButton">
+
+            </button>
+        </div>
+        <div class="panel" id="bottom">
+
+            <button class="transformButton">
+
+            </button>
+        </div>
+        <div class="panel" id="left">
+
+            <button class="transformButton">
+
+            </button>
+        </div>
+        <div class="panel" id="right">
+
+            <button class="transformButton">
+
+            </button>
+        </div>
+
+        <button id="transformButton">
+            X
+        </button>
+        <div id="map"></div>
+        <div class="TEST" id="title">
+            <h1>
+                ISS Live
+            </h1>
+        </div>
+        <div class="TEST" id="Dform">
+            <form id="form">
+              <fieldset>
+                <label for="latitude"></label>
+                <input id="latitude" type="number" step="any" name="latitude" value="" placeholder="latitude">
+                <label for="longitude"></label>
+                <input id="longitude" type="number" step="any" name="longitude" value="" placeholder="longitude">
+              </fieldset>
+			        <fieldset>
+                <select id="countries">
+                    <option value="country">-- Country --</option>
+                </select>
+
+                <select id="cities">
+                    <option value="city">-- City --</option>
+                </select>
+			        </fieldset>
+                <input type="submit" name="name" value="Submit">
+                <input id="clear" type="button" name="name" value="Clear">
+            </form>
+        </div>
+        <div class="TEST" id="ISSPassTime">
+            <h2>
+                ISS Pass Time
+            </h2>
             <p>
-                Time
+            Time
             </p>
             <p id="time"></p>
             <p>
-                Countdown
+            Countdown
             </p>
             <p id="countdown"></p>
             <p>
-                Duration
+            Duration
             </p>
             <p id="duration"></p>
             <button id="hourformat">Change Hour Format</button>
         </div>
-        <div class="TEST" id="T2">
-            <h2>
-                User Position
-            </h2>
-            <p>
-                Latitude
-            </p>
-            <p id="userLatitude"></p>
-            <p>
-                Longitude
-            </p>
-            <p id="userLongitude"></p>
-        </div>
-        <div id="getISSPos" class="TEST">
+        <div class="TEST" id="UserPosition">
             <h2>
                 ISS position
             </h2>
             <p>
-                Latitude :
-            <span id="getISSLatitude"></span>
+            Latitude :
+            <span id="userLatitude"></span>
             <p>
             <p>
-                Longitude :
-            <span id="getISSLongitude"></span>
+            Longitude :
+            <span id="userLongitude"></span>
             <p>
         </div>
->>>>>>> bf31ad2a4f80059cf57022a8110876122bd95c2b
+        <div class="TEST" id="ISSPosition">
+            <h2>
+                ISS position
+            </h2>
+            <p>
+            Latitude :
+            <span id="ISSLatitude"></span>
+            <p>
+            <p>
+            Longitude :
+            <span id="ISSLongitude"></span>
+            </p>
+        </div>
+        <div class="TEST" id="twitter">
+            <ul>
+                <li><a href="https://twitter.com/NASA">NASA</a></li>
+                <li><a href="https://twitter.com/space_station"></a></li>
+                <li><a href="https://twitter.com/thom_astro">Thomas Pesquet</a></li>
+                <li><a href="https://twitter.com/astro_kimbrough">Shane Kimbrough</a></li>
+                <li><a href="https://twitter.com/astropeggy">Peggy Whiteson</a></li>
+        </div>
+        <div class="TEST" id="credits">
+            <ul>
+                <li><a href="https://metallou.github.io/portfolio/">Kévin</a></li>
+                <li><a href="https://darkilen.github.io/portfolio/S">Samuel</a></li>
+                <li><a href="https://guillotjessica.github.io/portfolio/">Jessica</a></li>
+                <li><a href="http://laurenebergman.com">Laurène</a></li>
+            </ul>
+        </div>
+        <div class="TEST" id="camera">
+            <li><a href="http://iss.destination-orbite.net/live.php">Destination Orbite</a></li>
+            <li><a href="https://www.nasa.gov/">NASA</a></li>
+            <li><a href="https://www.nasa.gov/multimedia/nasatv/index.html#public">NASA TV</a></li>
+        </div>
     </body>
 </html>

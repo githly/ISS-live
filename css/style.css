@@ -42,7 +42,16 @@ img {
     max-width: 100%;
 }
 
+<<<<<<< HEAD
 div, form{
+=======
+/* ---------------------------------------------------------------------------- General structure */
+html, body{
+    overflow: hidden;
+}
+
+div{
+>>>>>>> e7fb64a23188538a1ae02d7331717660713e9965
     position: absolute;
     box-sizing: border-box;
 
@@ -58,10 +67,16 @@ div, form{
     height: 100vh;
     z-index: -1;
 }
-.right, .left, .top, .bottom{
-    height:19vh;
+
+.panel
+{
+    position: absolute;
     width: 19vw;
+    height: 19vh;
+    border: 5px solid black;
+    box-sizing: border-box;
 }
+<<<<<<< HEAD
 #ClearMap{
   position: absolute;
   z-index: 200;
@@ -72,26 +87,76 @@ div, form{
 }
 
 .wide.bottom, .wide.top{
+}
+#top, #bottom
+{
     width: calc(100vw - 19vw - 19vw);
-    left: 19vw;
+}
+#left, #right
+{
+    height: calc(100vh - 19vh - 19vh);
 }
 
-.wide.right, .wide.left{
-    height: calc(100vh - 19vh - 19vh);
-    top: 19vh;
+.panel .transformButton
+{
+    position: absolute;
+    width: 20px;
+    height: 20px;
 }
-.top{
-    top: 0;
-}
-.right{
+#topleft .transformButton
+{
+    bottom: 0;
     right: 0;
 }
-.bottom{
+#topright .transformButton
+{
     bottom: 0;
-}
-.left{
     left: 0;
 }
+#bottomleft .transformButton
+{
+    top: 0;
+    right: 0;
+}
+#bottomright .transformButton
+{
+    top: 0;
+    left: 0;
+}
+#top .transformButton
+{
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%):
+}
+#bottom .transformButton
+{
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%):
+}
+#left .transformButton
+{
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%):
+}
+#right .transformButton
+{
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%):
+}
+
+#transformButton
+{
+    position: absolute;
+    bottom: calc(20vh + 20px);
+    right: calc(20vw + 20px);
+    width: 20px;
+    height: 20px;
+}
+
 
 .selected{
     color: black;
@@ -103,22 +168,49 @@ div, form{
     border: 5px solid black;
     background-color: #FFFFFF;
 }
-#T1
+#title
+{
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#Dform
+{
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#ISSPassTime
+{
+    bottom: 5%;
+    right: 5%;
+}
+#UserPosition
+{
+    bottom: 5%;
+    left: 5%;
+}
+#ISSPosition
+{
+    top: 5%;
+    left: 5%;
+}
+#twitter
 {
     top: 50%;
-    right: 0;
+    right: 5%;
     transform: translateY(-50%);
 }
-#T2
+#credits
 {
     top: 50%;
-    left: 0;
+    left: 5%;;
     transform: translateY(-50%);
 }
-#getISSPos
+#camera
 {
-    top: 0;
-    left: 0;
+    top: 5%;
+    right: 5%;
 }
 
 /* ---------------------------------------------------------------------------- Structure des TItres */
@@ -144,6 +236,4 @@ p {
 }
 
 
-
-/* Media Queries */
 /* ---------------------------------------------------------------------------- Media Queries */

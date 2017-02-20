@@ -1,11 +1,13 @@
 "use strict"
 
-let uLat = 0.0;
-let uLon = 0.0;
-
 const userPositionReady = function()
 {
-    document.getElementById("userLatitude").textContent = uLat.toFixed(10);
-    document.getElementById("userLongitude").textContent = uLon.toFixed(10);
+    document.getElementById("userLatitude").textContent = latitude.toFixed(4);
+    document.getElementById("userLongitude").textContent = longitude.toFixed(4);
+    setInterval(function()
+            {
+                document.getElementById("userLatitude").textContent = latitude.toFixed(4);
+                document.getElementById("userLongitude").textContent = longitude.toFixed(4);
+            }, 1000);
 }
 document.addEventListener("DOMContentLoaded", userPositionReady);
