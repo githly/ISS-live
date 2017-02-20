@@ -42,24 +42,11 @@ img {
     max-width: 100%;
 }
 
-<<<<<<< HEAD
-div, form{
-=======
 /* ---------------------------------------------------------------------------- General structure */
 html, body{
     overflow: hidden;
 }
 
-div{
->>>>>>> e7fb64a23188538a1ae02d7331717660713e9965
-    position: absolute;
-    box-sizing: border-box;
-
-}
-.cache{
-    background-color: black;
-
-}
 #map{
     top: 0vh;
     left: 0vw;
@@ -76,7 +63,6 @@ div{
     border: 5px solid black;
     box-sizing: border-box;
 }
-<<<<<<< HEAD
 #ClearMap{
   position: absolute;
   z-index: 200;
@@ -86,8 +72,6 @@ div{
   color: white;
 }
 
-.wide.bottom, .wide.top{
-}
 #top, #bottom
 {
     width: calc(100vw - 19vw - 19vw);
@@ -156,7 +140,6 @@ div{
     width: 20px;
     height: 20px;
 }
-
 
 .selected{
     color: black;
