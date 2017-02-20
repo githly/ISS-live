@@ -9,11 +9,15 @@ const callISSPositionScript = function()
 }
 const ISSPositionScriptCallback = function(data)
 {
+    let obj = {};
     if(data.message==="success"){
+        obj.lat = parseFloat(data.iss_position['latitude']);
+        obj.lng = parseFloat(data.iss_position['latitude']);
         let issLat = document.getElementById('ISSLatitude');
         let issLon = document.getElementById('ISSLongitude');
-        issLat.textContent = parseFloat(data.iss_position['latitude']).toFixed(4);
-        issLon.textContent = parseFloat(data.iss_position['longitude']).toFixed(4);
+        issLat.textContent = obj.lat.toFixed(4);
+        issLon.textContent = obj.lng.toFixed(4);
+        addMarker("iss", obj);
     }
 }
 document.addEventListener("DOMContentLoaded",function(e)

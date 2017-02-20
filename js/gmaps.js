@@ -45,7 +45,7 @@ function addMarker(index, location)
             break;
         case "iss":
             markerISS = marker;
-            ISSPosition.unshift(location);
+            ISSPositions.unshift(location);
             if(ISSPositions.length > 3600) {
                 ISSPositions.pop();
             }
