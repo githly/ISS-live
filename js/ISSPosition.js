@@ -1,31 +1,23 @@
 "use strict";
 
-let intervalID;
-const getISSPos = function(data)
+const callISSPositionScript = function()
 {
     let script = document.createElement("script");
-    script.src = "http://api.open-notify.org/iss-now.json?callback=printISSPos";
+    script.src = "http://api.open-notify.org/iss-now.json?callback=ISSPositionScriptCallback";
     document.head.appendChild(script);
     script.parentNode.removeChild(script);
 }
-const initISSPos = function(data)
-{
-    printISSPos(data);
-    intervalID = window.setInterval(function(){getISSPos(data)}, 1000);
-}
-const printISSPos = function(data)
+const ISSPositionScriptCallback = function(data)
 {
     if(data.message==="success"){
-        let latitude = document.getElementById('ISSLatitude');
-        let longitude = document.getElementById('ISSLongitude');
-        latitude.textContent = parseFloat(data.iss_position['latitude']).toFixed(4);
-        longitude.textContent = parseFloat(data.iss_position['longitude']).toFixed(4);
+        let issLat = document.getElementById('ISSLatitude');
+        let issLon = document.getElementById('ISSLongitude');
+        issLat.textContent = parseFloat(data.iss_position['latitude']).toFixed(4);
+        issLon.textContent = parseFloat(data.iss_position['longitude']).toFixed(4);
     }
 }
-document.addEventListener("DOMContentLoaded",function()
+document.addEventListener("DOMContentLoaded",function(e)
         {
-            let script = document.createElement("script");
-            script.src = "http://api.open-notify.org/iss-now.json?callback=initISSPos";
-            document.head.appendChild(script);
-            event.preventDefault();
+            callISSPositionScript();
+            setInterval(callISSPositionScript, 1000);
         });

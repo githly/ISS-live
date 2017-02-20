@@ -5,10 +5,10 @@ function n(n)
     return n > 9 ? "" + n: "0" + n;
 }
 
-const callISSPassTimeScript = function(lat, lon)
+const callISSPassTimeScript = function()
 {
-    if(lat == 0) lat++;
-    if(lon == 0) lon++;
+    if(latitude == 0) latitude++;
+    if(longitude == 0) longitude++;
     const script = document.createElement("script");
     script.setAttribute("src", "http://api.open-notify.org/iss-pass.json?lat="+latitude.toFixed(4)+"&lon="+longitude.toFixed(4)+"&n=1&callback=ISSPassTimeScriptCallback");
     document.body.appendChild(script);
@@ -77,14 +77,10 @@ const displayDuration = function(timestamp)
     document.getElementById("countdown").textContent = convertDuration(duration);
 }
 
-const ISSPassTimeReady = function()
-{
-    callISSPassTimeScript(0.0,0.0);
-}
 document.addEventListener("DOMContentLoaded", function(e)
         {
-            ISSPassTimeReady();
-            setInterval(ISSPassTimeReady, 1000);
+            callISSPassTimeScript();
+            setInterval(callISSPassTimeScript, 1000);
             document.getElementById("hourformat").addEventListener("click", function(e)
                     {
                         hourformat = !hourformat;

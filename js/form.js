@@ -12,10 +12,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // ecoute la validation du formulaire
     document.getElementById('form').addEventListener("submit", function (evt){
 
-        latitude = document.getElementById('latitude').value;// Recupere la latitude
-        longitude = document.getElementById('longitude').value; // Recupere la longitude
-        console.log(latitude);
-        console.log(longitude);
+        evt.preventDefault();
+        latitude = parseFloat(document.getElementById('latitude').value);// Recupere la latitude
+        longitude = parseFloat(document.getElementById('longitude').value); // Recupere la longitude
 
     });// End Submit
 
