@@ -24,4 +24,8 @@ document.addEventListener("DOMContentLoaded",function(e)
         {
             callISSPositionScript();
             setInterval(callISSPositionScript, 1000);
+            document.getElementById("recenterISS").addEventListener("click", function(e)
+                    {
+                        map.panTo(markerISS.getPosition());
+                    });
         });
