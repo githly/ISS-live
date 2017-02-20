@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     document.getElementById('clear').addEventListener("click", function(e)
             {
                 document.getElementById('form').reset();
+                markerUser = "";
                 map.panTo(markerSimplon.getPosition());
             }); // End Clear
 }); // End DOMContentLoaded
