@@ -55,6 +55,17 @@ function addMarker(index, location)
     if(markerSimplon != "") markers.push(markerSimplon);
     if(markerISS != "") markers.push(markerISS);
     setMapOnAll(map);
+	
+	//Create Polyline on the map
+	var flightPath = new google.maps.Polyline({
+		path: ISSPositions,
+		geodesic: true,
+		strokeColor: '#FF0000',
+		strokeOpacity: 1.0,
+		strokeWeight: 5
+	});
+
+	flightPath.setMap(map);
 }
 
 function setMapOnAll(map)
@@ -63,3 +74,5 @@ function setMapOnAll(map)
         markers[i].setMap(map);
     }
 }
+
+
