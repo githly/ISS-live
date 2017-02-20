@@ -1,13 +1,14 @@
 'use strict'
 
-let latitude = 0;
-let longitude = 0;
 let SimplonLatitude = 43.342396;
 let SimplonLongitude = 5.437168;
+
+let latitude = SimplonLatitude;
+let longitude = SimplonLongitude;
 // Demarre le Js quand le DOM est chargé
 document.addEventListener("DOMContentLoaded", function(event) {
 
-    
+
     // ecoute la validation du formulaire
     document.getElementById('form').addEventListener("submit", function (evt){
 
@@ -17,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         console.log(longitude);
 
     });// End Submit
-	  
+
     const PLACES = buildPlaces();
     for(let i in PLACES) {
         document.getElementById("countries").options.add(new Option(PLACES[i].country, i));
@@ -42,28 +43,28 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     modelList.options.add(city);
                 }
             }
-		} else {
-			document.getElementById("latitude").value = SimplonLatitude;
-			document.getElementById("longitude").value = SimplonLongitude;
-		}
+        } else {
+            document.getElementById("latitude").value = SimplonLatitude;
+            document.getElementById("longitude").value = SimplonLongitude;
+        }
     });// End Change
-	document.getElementById('cities').addEventListener("change", function (e)
-	{
-		let list = document.getElementById("countries");
-		let listC = document.getElementById("cities");
-		let CountrySelect = list.options[list.selectedIndex].value;
-		let CitySelect = listC.options[listC.selectedIndex].value;
-		if (CitySelect != "city"){
-			let lat = PLACES[CountrySelect].cities[CitySelect].lat;
-			let lon = PLACES[CountrySelect].cities[CitySelect].lon;
-			document.getElementById("latitude").value = lat;
-			document.getElementById("longitude").value = lon;	
-		} else {
-			document.getElementById("latitude").value = SimplonLatitude;
-			document.getElementById("longitude").value = SimplonLongitude;
-		}
-		
-	});// End Change
+    document.getElementById('cities').addEventListener("change", function (e)
+            {
+                let list = document.getElementById("countries");
+                let listC = document.getElementById("cities");
+                let CountrySelect = list.options[list.selectedIndex].value;
+                let CitySelect = listC.options[listC.selectedIndex].value;
+                if (CitySelect != "city"){
+                    let lat = PLACES[CountrySelect].cities[CitySelect].lat;
+                    let lon = PLACES[CountrySelect].cities[CitySelect].lon;
+                    document.getElementById("latitude").value = lat;
+                    document.getElementById("longitude").value = lon;	
+                } else {
+                    document.getElementById("latitude").value = SimplonLatitude;
+                    document.getElementById("longitude").value = SimplonLongitude;
+                }
+
+            });// End Change
 
     // clear le formulaire
     document.getElementById('clear').addEventListener("click", function (evt){
