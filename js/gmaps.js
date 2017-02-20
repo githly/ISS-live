@@ -34,8 +34,8 @@ function addMarker(index, location)
             break;
         case "user":
             markerUser = marker;
-            LAT = location.lat();
-            LNG = location.lng();
+            LAT = location.lat;
+            LNG = location.lng;
             break;
         case "default":
             markerSimplon = marker;

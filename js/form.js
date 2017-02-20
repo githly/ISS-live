@@ -62,5 +62,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     document.getElementById('clear').addEventListener("click", function(e)
             {
                 document.getElementById('form').reset();
+                map.panTo(markerSimplon.getPosition());
             }); // End Clear
 }); // End DOMContentLoaded
