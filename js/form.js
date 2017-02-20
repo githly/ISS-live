@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             document.getElementById("longitude").value = SimplonLongitude;
         }
     });// End Change
-    
+
     document.getElementById('cities').addEventListener("change", function (e)
             {
                 let list = document.getElementById("countries");
