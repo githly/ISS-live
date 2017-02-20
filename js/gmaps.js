@@ -12,7 +12,7 @@ function initMap() {
     // This event listener will call addMarker() when the map is clicked.
     map.addListener('click', function(e)
             {
-                addMarker("user", e.latLng);
+                addMarker("userclick", e.latLng);
             });
 
     // Adds a marker at the center of the map.
@@ -27,6 +27,11 @@ function addMarker(index, location)
         map: map
     });
     switch(index) {
+        case "userclick":
+            markerUser = marker;
+            LAT = location.lat();
+            LNG = location.lng();
+            break;
         case "user":
             markerUser = marker;
             LAT = location.lat();

@@ -2,14 +2,6 @@
 
 // Demarre le Js quand le DOM est chargé
 document.addEventListener("DOMContentLoaded", function(event) {
-    // ecoute la validation du formulaire
-    document.getElementById('form').addEventListener("submit", function(e)
-            {
-                e.preventDefault();
-                LAT = parseFloat(document.getElementById('latitude').value);// Recupere la latitude
-                LNG = parseFloat(document.getElementById('longitude').value); // Recupere la longitude
-            });// End Submit
-
     const PLACES = buildPlaces();
     for(let i in PLACES) {
         document.getElementById("countries").options.add(new Option(PLACES[i].country, i));
@@ -57,9 +49,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
             });// End Change
 
+    // ecoute la validation du formulaire
+    document.getElementById('form').addEventListener("submit", function(e)
+            {
+                e.preventDefault();
+                LAT = parseFloat(document.getElementById('latitude').value);// Recupere la latitude
+                LNG = parseFloat(document.getElementById('longitude').value); // Recupere la longitude
+                addMarker("user", {lat: LAT, lng: LNG});
+            });// End Submit
+
     // clear le formulaire
     document.getElementById('clear').addEventListener("click", function(e)
             {
                 document.getElementById('form').reset();
-            }); // End Click
+            }); // End Clear
 }); // End DOMContentLoaded
