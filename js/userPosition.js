@@ -9,5 +9,9 @@ const userPositionReady = function()
 {
     displayUserPosition();
     setInterval(displayUserPosition, 1000);
+    document.getElementById("recenterUser").addEventListener("click", function()
+            {
+                map.panTo(markerUser.getPosition());
+            });
 }
 document.addEventListener("DOMContentLoaded", userPositionReady);

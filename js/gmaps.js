@@ -13,6 +13,7 @@ function initMap() {
     map.addListener('click', function(e)
             {
                 addMarker("userclick", e.latLng);
+                map.panTo(markerUser.getPosition());
             });
 
     // Adds a marker at the center of the map.

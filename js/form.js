@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 LAT = parseFloat(document.getElementById('latitude').value);// Recupere la latitude
                 LNG = parseFloat(document.getElementById('longitude').value); // Recupere la longitude
                 addMarker("user", {lat: LAT, lng: LNG});
+                map.panTo(markerUser.getPosition());
             });// End Submit
 
     // clear le formulaire
