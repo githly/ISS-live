@@ -7,10 +7,10 @@ function n(n)
 
 const callISSPassTimeScript = function()
 {
-    if(latitude == 0) latitude++;
-    if(longitude == 0) longitude++;
+    if(LAT == 0) LAT++;
+    if(LNG == 0) LNG++;
     const script = document.createElement("script");
-    script.setAttribute("src", "http://api.open-notify.org/iss-pass.json?lat="+latitude.toFixed(4)+"&lon="+longitude.toFixed(4)+"&callback=ISSPassTimeScriptCallback");
+    script.setAttribute("src", "http://api.open-notify.org/iss-pass.json?lat="+LAT.toFixed(4)+"&lon="+LNG.toFixed(4)+"&callback=ISSPassTimeScriptCallback");
     document.body.appendChild(script);
     script.parentNode.removeChild(script);
 }

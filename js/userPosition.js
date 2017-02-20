@@ -2,8 +2,8 @@
 
 const displayUserPosition = function()
 {
-    document.getElementById("userLatitude").textContent = latitude.toFixed(4);
-    document.getElementById("userLongitude").textContent = longitude.toFixed(4);
+    document.getElementById("userLatitude").textContent = LAT.toFixed(4);
+    document.getElementById("userLongitude").textContent = LNG.toFixed(4);
 }
 const userPositionReady = function()
 {
