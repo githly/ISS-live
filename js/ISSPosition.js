@@ -7,16 +7,18 @@ const callISSPositionScript = function()
     document.head.appendChild(script);
     script.parentNode.removeChild(script);
 }
+const displayISSPosition = function(obj)
+{
+        document.getElementById('ISSLatitude').textContent = obj.lat.toFixed(4);
+        document.getElementById('ISSLongitude').textContent = obj.lng.toFixed(4);
+}
 const ISSPositionScriptCallback = function(data)
 {
-    let obj = {};
+    let obj = new POSITION(0,0);
     if(data.message==="success") {
-        obj.lat = parseFloat(data.iss_position['latitude']);
-        obj.lng = parseFloat(data.iss_position['latitude']);
-        let issLat = document.getElementById('ISSLatitude');
-        let issLon = document.getElementById('ISSLongitude');
-        issLat.textContent = obj.lat.toFixed(4);
-        issLon.textContent = obj.lng.toFixed(4);
+        obj.setLat(parseFloat(data.iss_position['latitude']));
+        obj.setLng(parseFloat(data.iss_position['latitude']));
+        displayISSPosition(obj);
         if(map!=undefined) addMarker("iss", obj);
     }
 }
@@ -26,6 +28,6 @@ document.addEventListener("DOMContentLoaded",function(e)
             setInterval(callISSPositionScript, 1000);
             document.getElementById("recenterISS").addEventListener("click", function(e)
                     {
-                        map.panTo(markerISS.getPosition());
+                        if(map!=undefined) map.panTo(markerISS.getPosition());
                     });
         });

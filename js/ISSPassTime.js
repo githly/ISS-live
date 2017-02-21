@@ -7,13 +7,8 @@ function n(n)
 
 const callISSPassTimeScript = function()
 {
-    if(LAT == 0) LAT = INC;
-    if(LNG == 0) LNG = INC;
-    if(LAT > 71) LAT = 71;
-    if(LAT < -71) LAT = -71;
-
     const script = document.createElement("script");
-    script.setAttribute("src", "http://api.open-notify.org/iss-pass.json?lat="+LAT.toFixed(4)+"&lon="+LNG.toFixed(4)+"&callback=ISSPassTimeScriptCallback");
+    script.setAttribute("src", "http://api.open-notify.org/iss-pass.json?lat="+POS.lat.toFixed(4)+"&lon="+POS.lng.toFixed(4)+"&callback=ISSPassTimeScriptCallback");
     document.body.appendChild(script);
     script.parentNode.removeChild(script);
 }

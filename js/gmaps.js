@@ -20,18 +20,19 @@ function initMap() {
     addMarker("default", SIMPLonMARS);
 }
 
-const insertNewUserMarker = function(n, lat, lng)
+const insertNewUserMarker = function(n, obj)
 {
     let lat2;
     let lng2;
     for(let i=0; i<n; i++) {
-        lat2 = localStorage.getItem("markerlat"+i);
-        lng2 = localStorage.getItem("markerlng"+i);
-        if(lat==lat2 && lng==lng2) return false;
+        lat2 = localStorage.getItem("markerLat"+i);
+        lng2 = localStorage.getItem("markerLng"+i);
+        if(obj.lat==lat2 && obj.lng==lng2) return false;
     }
-    localStorage.setItem("markerlat"+n, LAT);
-    localStorage.setItem("markerlng"+n, LNG);
+    localStorage.setItem("markerLat"+n, obj.lat);
+    localStorage.setItem("markerLng"+n, obj.lng);
     localStorage.setItem("selectMarkers", n+1);
+    resetSelectMarkers();
     return true;
 }
 
@@ -46,29 +47,20 @@ function addMarker(index, location)
     switch(index) {
         case "userclick":
             markerUser = marker;
-            LAT = location.lat();
-            LNG = location.lng();
-            if(LAT==0.0) LAT=0.0001;
-            if(LNG==0.0) LNG=0.0001;
-            if(LAT<-71) LAT=-71;
-            if(LAT>71) LAT=71;
-            insertNewUserMarker(n, LAT,LNG);
+            POS.set(location.lat(), location.lng());
+            insertNewUserMarker(n, POS);
             break;
         case "user":
             markerUser = marker;
-            LAT = location.lat;
-            LNG = location.lng;
-            insertNewUserMarker(n, LAT,LNG);
+            POS.set(location.lat, location.lng);
+            insertNewUserMarker(n, POS);
             break;
         case "default":
             markerSimplon = marker;
             break;
         case "iss":
             markerISS = marker;
-            ISSPositions.unshift(location);
-            if(ISSPositions.length > 3600) {
-                ISSPositions.pop();
-            }
+            ISSPos.insert(location);
             break;
     }
     //Resets markers
@@ -79,12 +71,9 @@ function addMarker(index, location)
     if(markerISS != "") markers.push(markerISS);
     setMapOnAll(map);
 
-    //Rebuild select old user markers
-    resetSelectMarkers();
-
     //Create Polyline on the map
     var flightPath = new google.maps.Polyline({
-        path: ISSPositions,
+        path: ISSPos.array,
         geodesic: true,
         strokeColor: '#FF0000',
         strokeOpacity: 1.0,
