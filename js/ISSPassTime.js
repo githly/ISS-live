@@ -17,7 +17,7 @@ const ISSPassTimeScriptCallback = function(data)
     if(data.message=="success") {
         displayTime(data.response[0].risetime);
         displayDuration(data.response[0].risetime);
-        document.getElementById("duration").textContent = data.response[0].duration + " seconds";
+        document.getElementById("duration").textContent = convertDuration(data.response[0].duration);
     } else {
         console.log(data);
     }
