@@ -48,6 +48,10 @@ function addMarker(index, location)
             markerUser = marker;
             LAT = location.lat();
             LNG = location.lng();
+            if(LAT==0.0) LAT=0.0001;
+            if(LNG==0.0) LNG=0.0001;
+            if(LAT<-71) LAT=-71;
+            if(LAT>71) LAT=71;
             insertNewUserMarker(n, LAT,LNG);
             break;
         case "user":

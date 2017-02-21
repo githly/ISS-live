@@ -1,6 +1,8 @@
 const SIMPLonLat = 43.342396;
 const SIMPLonLng = 5.437168;
 
+const INC = 0.0001;
+
 let LAT = SIMPLonLat;
 let LNG = SIMPLonLng;
 

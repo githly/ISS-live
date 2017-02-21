@@ -5,18 +5,20 @@ const buildPlaces = function()
     let arrayCities = [];
     function insertPlaces(obj)
     {
-        if(Object.keys(object).length==0) {
-            object = {cities: arrayCities, country: obj.country};
-            arrayCountries.push(object);
-            arrayCities.push({city:obj.city, lat:obj.lat, lon:obj.lon});
-        } else {
-            if(obj.country == object.country) {
-                arrayCities.push({city:obj.city, lat:obj.lat, lon:obj.lon});
-            } else {
-                arrayCities = [];
+        if(obj.lat>-71 && obj.lat<71) {
+            if(Object.keys(object).length==0) {
                 object = {cities: arrayCities, country: obj.country};
                 arrayCountries.push(object);
                 arrayCities.push({city:obj.city, lat:obj.lat, lon:obj.lon});
+            } else {
+                if(obj.country == object.country) {
+                    arrayCities.push({city:obj.city, lat:obj.lat, lon:obj.lon});
+                } else {
+                    arrayCities = [];
+                    object = {cities: arrayCities, country: obj.country};
+                    arrayCountries.push(object);
+                    arrayCities.push({city:obj.city, lat:obj.lat, lon:obj.lon});
+                }
             }
         }
     }
