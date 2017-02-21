@@ -51,3 +51,9 @@ let markerSimplon = "";
 let selectMarkers = [];
 
 const PLACES = buildPlaces();
+
+if(localStorage.getItem("selectMarkers")==null || localStorage.getItem("ISSPosition")==null) {
+    localStorage.clear();
+    localStorage.setItem("selectMarkers", 0);
+    localStorage.setItem("ISSPosition", 0);
+}
