@@ -8,45 +8,72 @@ class Panel
         this.masters = [];
         this.slaves = [];
     }
-    setMaster(obj)
+    addMaster(obj)
     {
         this.masters.push(obj);
     }
-    setSlave(obj)
+    addSlave(obj)
     {
         this.slaves.push(obj);
     }
+    hasMasters()
+    {
+        return this.masters.length!=0;
+    }
+    hasSlaves()
+    {
+        return this.slaves.length!=0;
+    }
     obeyYourMaster()
     {
-        if(this.elem.classList.contains("hidden")) return true;
-        if(this.masters.length!=0) {
+        if(this.containsStyle("hidden")) return true;
+        if(this.hasMasters()) {
             for(let i in this.masters)
             {
-                if(!this.masters[i].elem.classList.contains("hidden")) return false;
+                if(!this.masters[i].containsStyle("hidden")) return false;
             }
         }
         return true;
     }
     aManChoosesaSlaveObeys()
     {
-        if(this.slaves.length!=0) {
-            if(this.elem.classList.contains("hidden")) {
-                for(let i in this.slaves) {
-                    if(this.slaves[i].elem.classList.contains("cloaked")) {
+        if(this.hasSlaves()) {
+            for(let i in this.slaves) {
+                if(this.containsStyle("hidden")) {
+                    if(this.slaves[i].containsStyle("cloaked")) {
                         if(this.slaves[i].obeyYourMaster()) {
-                            this.slaves[i].elem.classList.add("hidden");
+                            this.slaves[i].addStyle("hidden");
                         }
                     }
-                }
-            } else {
-                for(let i in this.slaves) {
-                    if(this.slaves[i].elem.classList.contains("hidden")) {
-                        this.slaves[i].elem.classList.add("cloaked");
+                } else {
+                    if(this.slaves[i].containsStyle("hidden")) {
+                        this.slaves[i].addStyle("cloaked");
                     }
-                    this.slaves[i].elem.classList.remove("hidden");
+                    this.slaves[i].removeStyle("hidden");
                 }
+                this.slaves[i].saveConfig();
             }
         }
+    }
+    addStyle(id)
+    {
+        this.elem.classList.add(id);
+    }
+    removeStyle(id)
+    {
+        this.elem.classList.remove(id);
+    }
+    toggleStyle(id)
+    {
+        this.elem.classList.toggle(id);
+    }
+    containsStyle(id)
+    {
+        return this.elem.classList.contains(id);
+    }
+    saveConfig()
+    {
+        localStorage.setItem(this.elem.id, this.elem.classList);
     }
 }
 class Panels
@@ -92,14 +119,14 @@ const panelTransform = function(e)
 {
     let obj = PANELS.search(e.target.parentNode);
     if(obj.obeyYourMaster()) {
-        obj.elem.classList.toggle("hidden");
-        if(obj.masters.length!=0) {
-            if(!obj.elem.classList.contains("hidden")) {
-                obj.elem.classList.remove("cloaked");
+        obj.toggleStyle("hidden");
+        if(obj.hasMasters()) {
+            if(!obj.containsStyle("hidden")) {
+                obj.removeStyle("cloaked");
             }
         }
     } else {
-        obj.elem.classList.toggle("cloaked");
+        obj.toggleStyle("cloaked");
     }
     obj.aManChoosesaSlaveObeys();
     PANELS.saveConfig(obj.elem);
@@ -123,22 +150,22 @@ const panelTransformReady = function()
     let r = new Panel("right");
     PANELS.insert(r);
 
-    tl.setMaster = t;
-    tl.setMaster = l;
-    tr.setMaster = t;
-    tr.setMaster = r;
-    bl.setMaster = b;
-    bl.setMaster = l;
-    br.setMaster = b;
-    br.setMaster = r;
-    t.setSlave = tl;
-    t.setSlave = tr;
-    b.setSlave = bl;
-    b.setSlave = br;
-    l.setSlave = tl;
-    l.setSlave = bl;
-    r.setSlave = tr;
-    r.setSlave = br;
+    tl.addMaster(t);
+    tl.addMaster(l);
+    tr.addMaster(t);
+    tr.addMaster(r);
+    bl.addMaster(b);
+    bl.addMaster(l);
+    br.addMaster(b);
+    br.addMaster(r);
+    t.addSlave(tl);
+    t.addSlave(tr);
+    b.addSlave(bl);
+    b.addSlave(br);
+    l.addSlave(tl);
+    l.addSlave(bl);
+    r.addSlave(tr);
+    r.addSlave(br);
 
     document.getElementById("topleft").getElementsByClassName("transformButton")[0].addEventListener("click", panelTransform);
     document.getElementById("topright").getElementsByClassName("transformButton")[0].addEventListener("click", panelTransform);
@@ -154,11 +181,11 @@ const panelTransformReady = function()
                 e.target.classList.toggle("active");
                 for(let i in PANELS.array) {
                     if(e.target.classList.contains("active")) {
-                        PANELS.array[i].elem.classList.add("hidden");
+                        PANELS.array[i].addStyle("hidden");
                     } else {
-                        PANELS.array[i].elem.classList.remove("hidden");
-                        PANELS.array[i].elem.classList.remove("cloaked");
+                        PANELS.array[i].removeStyle("hidden");
                     }
+                    PANELS.array[i].removeStyle("cloaked");
                 }
                 PANELS.saveConfigs();
             });
