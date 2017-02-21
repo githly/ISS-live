@@ -20,9 +20,25 @@ function initMap() {
     addMarker("default", SIMPLonMARS);
 }
 
+const insertNewUserMarker = function(n, lat, lng)
+{
+    let lat2;
+    let lng2;
+    for(let i=0; i<n; i++) {
+        lat2 = localStorage.getItem("markerlat"+i);
+        lng2 = localStorage.getItem("markerlng"+i);
+        if(lat==lat2 && lng==lng2) return false;
+    }
+    localStorage.setItem("markerlat"+n, LAT);
+    localStorage.setItem("markerlng"+n, LNG);
+    localStorage.setItem("selectMarkers", n+1);
+    return true;
+}
+
 // Adds a marker to the map and push to the array.
 function addMarker(index, location)
 {
+    let n = parseInt(localStorage.getItem("selectMarkers"));
     var marker = new google.maps.Marker({
         position: location,
         map: map
@@ -32,11 +48,13 @@ function addMarker(index, location)
             markerUser = marker;
             LAT = location.lat();
             LNG = location.lng();
+            insertNewUserMarker(n, LAT,LNG);
             break;
         case "user":
             markerUser = marker;
             LAT = location.lat;
             LNG = location.lng;
+            insertNewUserMarker(n, LAT,LNG);
             break;
         case "default":
             markerSimplon = marker;
@@ -55,6 +73,7 @@ function addMarker(index, location)
     if(markerSimplon != "") markers.push(markerSimplon);
     if(markerISS != "") markers.push(markerISS);
     setMapOnAll(map);
+    resetSelectMarkers();
 }
 
 function setMapOnAll(map)

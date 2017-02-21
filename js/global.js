@@ -11,6 +11,8 @@ let markerUser = "";
 let markerISS = "";
 let markerSimplon = "";
 
+let selectMarkers = [];
+
 var SIMPLonMARS =
 {
     lat: SIMPLonLat,
