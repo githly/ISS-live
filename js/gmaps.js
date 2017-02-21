@@ -20,9 +20,25 @@ function initMap() {
     addMarker("default", SIMPLonMARS);
 }
 
+const insertNewUserMarker = function(n, lat, lng)
+{
+    let lat2;
+    let lng2;
+    for(let i=0; i<n; i++) {
+        lat2 = localStorage.getItem("markerlat"+i);
+        lng2 = localStorage.getItem("markerlng"+i);
+        if(lat==lat2 && lng==lng2) return false;
+    }
+    localStorage.setItem("markerlat"+n, LAT);
+    localStorage.setItem("markerlng"+n, LNG);
+    localStorage.setItem("selectMarkers", n+1);
+    return true;
+}
+
 // Adds a marker to the map and push to the array.
 function addMarker(index, location)
 {
+    let n = parseInt(localStorage.getItem("selectMarkers"));
     var marker = new google.maps.Marker({
         position: location,
         map: map
@@ -32,11 +48,13 @@ function addMarker(index, location)
             markerUser = marker;
             LAT = location.lat();
             LNG = location.lng();
+            insertNewUserMarker(n, LAT,LNG);
             break;
         case "user":
             markerUser = marker;
             LAT = location.lat;
             LNG = location.lng;
+            insertNewUserMarker(n, LAT,LNG);
             break;
         case "default":
             markerSimplon = marker;
@@ -49,23 +67,26 @@ function addMarker(index, location)
             }
             break;
     }
+    //Resets markers
     setMapOnAll(null);
     markers = [];
     if(markerUser != "") markers.push(markerUser);
     if(markerSimplon != "") markers.push(markerSimplon);
     if(markerISS != "") markers.push(markerISS);
     setMapOnAll(map);
-	
-	//Create Polyline on the map
-	var flightPath = new google.maps.Polyline({
-		path: ISSPositions,
-		geodesic: true,
-		strokeColor: '#FF0000',
-		strokeOpacity: 1.0,
-		strokeWeight: 5
-	});
 
-	flightPath.setMap(map);
+    //Rebuild select old user markers
+    resetSelectMarkers();
+
+    //Create Polyline on the map
+    var flightPath = new google.maps.Polyline({
+        path: ISSPositions,
+        geodesic: true,
+        strokeColor: '#FF0000',
+        strokeOpacity: 1.0,
+        strokeWeight: 5
+    });
+    flightPath.setMap(map);
 }
 
 function setMapOnAll(map)
