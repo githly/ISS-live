@@ -16,11 +16,10 @@ const SIMPLonLat = 43.342396;
 const SIMPLonLng = 5.437168;
 class POSITION
 {
-    constructor(latitude, longitude)
+    constructor()
     {
-        this.lat = 0;
-        this.lng = 0;
-        this.set(latitude, longitude);
+        this.lat = SIMPLonLat;
+        this.lng = SIMPLonLng;
     }
     setLat(latitude)
     {

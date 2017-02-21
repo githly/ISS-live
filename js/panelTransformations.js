@@ -8,96 +8,164 @@ class Panel
         this.masters = [];
         this.slaves = [];
     }
-}
-let PANELS = new Array();
-
-const searchObject = function(elem)
-{
-    for(let item in PANELS) {
-        if(PANELS[item].elem == elem) return PANELS[item];
+    addMaster(obj)
+    {
+        this.masters.push(obj);
     }
-}
-const savePanelsConfig = function()
-{
-    for(let item in PANELS) {
-        localStorage.setItem(PANELS[item].elem.id, PANELS[item].elem.classList);
+    addSlave(obj)
+    {
+        this.slaves.push(obj);
     }
-}
-const setPanelsConfig = function()
-{
-    for(let item in PANELS) {
-        PANELS[item].elem.classList = localStorage.getItem(PANELS[item].elem.id) || "panel";
+    hasMasters()
+    {
+        return this.masters.length!=0;
     }
-}
-
-const obeyYourMaster = function(obj)
-{
-    if(obj.elem.classList.contains("hidden")) return true;
-    if(obj.masters.length!=0) {
-        for(let item in obj.masters)
-        {
-            if(!obj.masters[item].elem.classList.contains("hidden")) return false;
+    hasSlaves()
+    {
+        return this.slaves.length!=0;
+    }
+    obeyYourMaster()
+    {
+        if(this.containsStyle("hidden")) return true;
+        if(this.hasMasters()) {
+            for(let i in this.masters)
+            {
+                if(!this.masters[i].containsStyle("hidden")) return false;
+            }
         }
+        return true;
     }
-    return true;
-}
-const moveYourSlaves = function(obj)
-{
-    if(obj.slaves.length!=0) {
-        if(obj.elem.classList.contains("hidden")) {
-            for(let item in obj.slaves) {
-                if(obj.slaves[item].elem.classList.contains("cloaked")) {
-                    if(obeyYourMaster(obj.slaves[item])) {
-                        obj.slaves[item].elem.classList.add("hidden");
+    aManChoosesaSlaveObeys()
+    {
+        if(this.hasSlaves()) {
+            for(let i in this.slaves) {
+                if(this.containsStyle("hidden")) {
+                    if(this.slaves[i].containsStyle("cloaked")) {
+                        if(this.slaves[i].obeyYourMaster()) {
+                            this.slaves[i].addStyle("hidden");
+                        }
                     }
+                } else {
+                    if(this.slaves[i].containsStyle("hidden")) {
+                        this.slaves[i].addStyle("cloaked");
+                    }
+                    this.slaves[i].removeStyle("hidden");
                 }
-            }
-        } else {
-            for(let item in obj.slaves) {
-                if(obj.slaves[item].elem.classList.contains("hidden")) {
-                    obj.slaves[item].elem.classList.add("cloaked");
-                }
-                obj.slaves[item].elem.classList.remove("hidden");
+                this.slaves[i].saveConfig();
             }
         }
     }
+    addStyle(id)
+    {
+        this.elem.classList.add(id);
+    }
+    removeStyle(id)
+    {
+        this.elem.classList.remove(id);
+    }
+    toggleStyle(id)
+    {
+        this.elem.classList.toggle(id);
+    }
+    containsStyle(id)
+    {
+        return this.elem.classList.contains(id);
+    }
+    saveConfig()
+    {
+        localStorage.setItem(this.elem.id, this.elem.classList);
+    }
 }
+class Panels
+{
+    constructor()
+    {
+        this.array = [];
+    }
+    insert(obj)
+    {
+        this.array.push(obj);
+    }
+    search(obj)
+    {
+        for(let i in this.array) {
+            if(this.array[i].elem == obj) return this.array[i];
+        }
+    }
+    saveConfig(obj)
+    {
+        localStorage.setItem(obj.id, obj.classList);
+    }
+    saveConfigs()
+    {
+        for(let i in this.array) {
+            this.saveConfig(this.array[i].elem);
+        }
+    }
+    loadConfig(obj)
+    {
+        obj.classList = localStorage.getItem(obj.id) || "panel";
+    }
+    loadConfigs()
+    {
+        for(let i in this.array) {
+            this.loadConfig(this.array[i].elem);
+        }
+    }
+}
+let PANELS = new Panels();
 
 const panelTransform = function(e)
 {
-    let obj = searchObject(e.target.parentNode);
-    if(obeyYourMaster(obj)) {
-        obj.elem.classList.toggle("hidden");
-        if(obj.masters.length!=0) {
-            if(!obj.elem.classList.contains("hidden")) {
-                obj.elem.classList.remove("cloaked");
+    let obj = PANELS.search(e.target.parentNode);
+    if(obj.obeyYourMaster()) {
+        obj.toggleStyle("hidden");
+        if(obj.hasMasters()) {
+            if(!obj.containsStyle("hidden")) {
+                obj.removeStyle("cloaked");
             }
         }
     } else {
-        obj.elem.classList.toggle("cloaked");
+        obj.toggleStyle("cloaked");
     }
-    moveYourSlaves(obj);
-    savePanelsConfig();
+    obj.aManChoosesaSlaveObeys();
+    PANELS.saveConfig(obj.elem);
 }
 const panelTransformReady = function()
 {
     let tl = new Panel("topleft");
+    PANELS.insert(tl);
     let tr = new Panel("topright");
+    PANELS.insert(tr);
     let bl = new Panel("bottomleft");
+    PANELS.insert(bl);
     let br = new Panel("bottomright");
+    PANELS.insert(br);
     let t = new Panel("top");
+    PANELS.insert(t);
     let b = new Panel("bottom");
+    PANELS.insert(b);
     let l = new Panel("left");
+    PANELS.insert(l);
     let r = new Panel("right");
-    tl.masters = [t,l];
-    tr.masters = [t,r];
-    bl.masters = [b,l];
-    br.masters = [b,r];
-    t.slaves = [tl,tr];
-    b.slaves = [bl,br];
-    l.slaves = [tl,bl];
-    r.slaves = [tr,br];
-    PANELS = [tl,tr,bl,br,t,b,l,r];
+    PANELS.insert(r);
+
+    tl.addMaster(t);
+    tl.addMaster(l);
+    tr.addMaster(t);
+    tr.addMaster(r);
+    bl.addMaster(b);
+    bl.addMaster(l);
+    br.addMaster(b);
+    br.addMaster(r);
+    t.addSlave(tl);
+    t.addSlave(tr);
+    b.addSlave(bl);
+    b.addSlave(br);
+    l.addSlave(tl);
+    l.addSlave(bl);
+    r.addSlave(tr);
+    r.addSlave(br);
 
     document.getElementById("topleft").getElementsByClassName("transformButton")[0].addEventListener("click", panelTransform);
     document.getElementById("topright").getElementsByClassName("transformButton")[0].addEventListener("click", panelTransform);
@@ -111,18 +179,18 @@ const panelTransformReady = function()
     document.getElementById("transformButton").addEventListener("click", function(e)
             {
                 e.target.classList.toggle("active");
-                for(let item in PANELS) {
+                for(let i in PANELS.array) {
                     if(e.target.classList.contains("active")) {
-                        PANELS[item].elem.classList.add("hidden");
+                        PANELS.array[i].addStyle("hidden");
                     } else {
-                        PANELS[item].elem.classList.remove("hidden");
-                        PANELS[item].elem.classList.remove("cloaked");
+                        PANELS.array[i].removeStyle("hidden");
                     }
+                    PANELS.array[i].removeStyle("cloaked");
                 }
-                savePanelsConfig();
+                PANELS.saveConfigs();
             });
 
-    setPanelsConfig();
+    PANELS.loadConfigs();
 }
 document.addEventListener("DOMContentLoaded", function()
         {

@@ -12,7 +12,7 @@ const resetSelectMarkers = function()
     selectMarkers = [];
     const n = parseInt(localStorage.getItem("selectMarkers"));
     for(let i=0; i<n; i++) {
-        obj = new POSITION(0,0);
+        obj = new POSITION();
         obj.setLat(localStorage.getItem("markerLat"+i));
         obj.setLng(localStorage.getItem("markerLng"+i));
         selectMarkers.push(obj);
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function(e)
                     {
                         e.preventDefault();
 
-                        let obj = new POSITION(0,0);
+                        let obj = new POSITION();
                         obj.setLat(parseFloat(document.getElementById('latitude').value));// Recupere la latitude
                         obj.setLng(parseFloat(document.getElementById('longitude').value)); // Recupere la longitude
                         if(map!=undefined) {
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function(e)
                         localStorage.setItem("selectMarkers", 0);
                         localStorage.setItem("ISSPositions", 0);
                         resetSelectMarkers();
-                        setPanelsConfig();
+                        PANELS.loadConfigs();
                     }); // End Storage
 
         }); // End DOMContentLoaded
