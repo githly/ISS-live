@@ -141,7 +141,9 @@ html, body{
     width: 20px;
     height: 20px;
 }
-
+#topright, #right, #bottomright{
+  padding-left: 2%;
+}
 .selected{
     color: black;
 }

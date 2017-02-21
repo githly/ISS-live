@@ -21,49 +21,127 @@
     </head>
     <body>
         <div class="panel" id="topleft">
+              <ul>
+                <li><a href="http://simplonmars.eu">Made @SIMPLonMARS by</a></li>
 
+                  <li><a href="https://metallou.github.io/portfolio/">Kévin</a></li>
+                  <li><a href="https://darkilen.github.io/portfolio/">Samuel</a></li>
+                  <li><a href="https://guillotjessica.github.io/portfolio/">Jessica</a></li>
+                  <li><a href="http://laurenebergman.com">Laurène</a></li>
+              </ul>
             <button class="transformButton">
 
             </button>
         </div>
         <div class="panel" id="topright">
-
+              <ul>
+                  <li><a href="https://twitter.com/NASA">NASA</a></li>
+                  <li><a href="https://twitter.com/space_station"></a></li>
+                  <li><a href="https://twitter.com/thom_astro">Thomas Pesquet</a></li>
+                  <li><a href="https://twitter.com/astro_kimbrough">Shane Kimbrough</a></li>
+                  <li><a href="https://twitter.com/astropeggy">Peggy Whiteson</a></li>
+                </ul>
             <button class="transformButton">
 
             </button>
         </div>
         <div class="panel" id="bottomleft">
-
+              <h2>
+                  User position
+              </h2>
+              <p>
+              Latitude :
+              <span id="userLatitude"></span>
+              <p>
+              <p>
+              Longitude :
+              <span id="userLongitude"></span>
+              <p>
+              <button id="recenterUser">
+                  Recenter on User
+              </button>
             <button class="transformButton">
 
             </button>
         </div>
         <div class="panel" id="bottomright">
-
+            <ul>
+              <li><a href="http://iss.destination-orbite.net/live.php">Destination Orbite</a></li>
+              <li><a href="https://www.nasa.gov/">NASA</a></li>
+              <li><a href="https://www.nasa.gov/multimedia/nasatv/index.html#public">NASA TV</a></li>
+        </ul>
             <button class="transformButton">
 
             </button>
         </div>
         <div class="panel" id="top">
-
+          <h1>
+              ISS Live
+          </h1>
             <button class="transformButton">
 
             </button>
         </div>
         <div class="panel" id="bottom">
+          <form id="form">
+              <fieldset>
+                  <label for="latitude"></label>
+                  <input id="latitude" type="number" step="any" name="latitude" value="" placeholder="latitude">
+                  <label for="longitude"></label>
+                  <input id="longitude" type="number" step="any" name="longitude" value="" placeholder="longitude">
+              </fieldset>
+              <fieldset>
+                  <select id="countries">
+                      <option value="country">-- Country --</option>
+                  </select>
 
+                  <select id="cities">
+                      <option value="city">-- City --</option>
+                  </select>
+              </fieldset>
+              <input type="submit" name="name" value="Submit">
+              <input id="clear" type="button" name="name" value="Clear">
+          </form>
             <button class="transformButton">
 
             </button>
         </div>
         <div class="panel" id="left">
-
+              <h2>
+                  ISS position
+              </h2>
+              <p>
+              Latitude :
+              <span id="ISSLatitude"></span>
+              <p>
+              <p>
+              Longitude :
+              <span id="ISSLongitude"></span>
+              </p>
+              <button id="recenterISS">
+                  Recenter on ISS
+              </button>
             <button class="transformButton">
 
             </button>
         </div>
         <div class="panel" id="right">
-
+              <h2>
+                  ISS Pass Time
+              </h2>
+              <p>
+              Time
+              </p>
+              <p id="time"></p>
+              <p>
+              Countdown
+              </p>
+              <p id="countdown"></p>
+              <p>
+              Duration
+              </p>
+              <p id="duration"></p>
+              <button id="hourformat">Change Hour Format</button>
             <button class="transformButton">
 
             </button>
@@ -73,102 +151,15 @@
             X
         </button>
         <div id="map"></div>
-        <div class="TEST" id="title">
-            <h1>
-                ISS Live
-            </h1>
-        </div>
-        <div class="TEST" id="Dform">
-            <form id="form">
-                <fieldset>
-                    <label for="latitude"></label>
-                    <input id="latitude" type="number" step="any" name="latitude" value="" placeholder="latitude">
-                    <label for="longitude"></label>
-                    <input id="longitude" type="number" step="any" name="longitude" value="" placeholder="longitude">
-                </fieldset>
-                <fieldset>
-                    <select id="countries">
-                        <option value="country">-- Country --</option>
-                    </select>
 
-                    <select id="cities">
-                        <option value="city">-- City --</option>
-                    </select>
-                </fieldset>
-                <input type="submit" name="name" value="Submit">
-                <input id="clear" type="button" name="name" value="Clear">
-            </form>
+        <div class="TEST" id="Dform">
+
         </div>
-        <div class="TEST" id="ISSPassTime">
-            <h2>
-                ISS Pass Time
-            </h2>
-            <p>
-            Time
-            </p>
-            <p id="time"></p>
-            <p>
-            Countdown
-            </p>
-            <p id="countdown"></p>
-            <p>
-            Duration
-            </p>
-            <p id="duration"></p>
-            <button id="hourformat">Change Hour Format</button>
-        </div>
-        <div class="TEST" id="UserPosition">
-            <h2>
-                User position
-            </h2>
-            <p>
-            Latitude :
-            <span id="userLatitude"></span>
-            <p>
-            <p>
-            Longitude :
-            <span id="userLongitude"></span>
-            <p>
-            <button id="recenterUser">
-                Recenter on User
-            </button>
-        </div>
-        <div class="TEST" id="ISSPosition">
-            <h2>
-                ISS position
-            </h2>
-            <p>
-            Latitude :
-            <span id="ISSLatitude"></span>
-            <p>
-            <p>
-            Longitude :
-            <span id="ISSLongitude"></span>
-            </p>
-            <button id="recenterISS">
-                Recenter on ISS
-            </button>
-        </div>
-        <div class="TEST" id="twitter">
-            <ul>
-                <li><a href="https://twitter.com/NASA">NASA</a></li>
-                <li><a href="https://twitter.com/space_station"></a></li>
-                <li><a href="https://twitter.com/thom_astro">Thomas Pesquet</a></li>
-                <li><a href="https://twitter.com/astro_kimbrough">Shane Kimbrough</a></li>
-                <li><a href="https://twitter.com/astropeggy">Peggy Whiteson</a></li>
-        </div>
-        <div class="TEST" id="credits">
-            <ul>
-                <li><a href="https://metallou.github.io/portfolio/">Kévin</a></li>
-                <li><a href="https://darkilen.github.io/portfolio/">Samuel</a></li>
-                <li><a href="https://guillotjessica.github.io/portfolio/">Jessica</a></li>
-                <li><a href="http://laurenebergman.com">Laurène</a></li>
-            </ul>
-        </div>
-        <div class="TEST" id="camera">
-            <li><a href="http://iss.destination-orbite.net/live.php">Destination Orbite</a></li>
-            <li><a href="https://www.nasa.gov/">NASA</a></li>
-            <li><a href="https://www.nasa.gov/multimedia/nasatv/index.html#public">NASA TV</a></li>
-        </div>
+
+
+
+
+
+
     </body>
 </html>
