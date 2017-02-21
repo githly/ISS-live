@@ -102,14 +102,14 @@ class Panels
             this.saveConfig(this.array[i].elem);
         }
     }
-    setConfig(obj)
+    loadConfig(obj)
     {
         obj.classList = localStorage.getItem(obj.id) || "panel";
     }
-    setConfigs()
+    loadConfigs()
     {
         for(let i in this.array) {
-            this.setConfig(this.array[i].elem);
+            this.loadConfig(this.array[i].elem);
         }
     }
 }
@@ -190,7 +190,7 @@ const panelTransformReady = function()
                 PANELS.saveConfigs();
             });
 
-    PANELS.setConfigs();
+    PANELS.loadConfigs();
 }
 document.addEventListener("DOMContentLoaded", function()
         {

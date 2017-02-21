@@ -14,7 +14,7 @@ const displayISSPosition = function(obj)
 }
 const ISSPositionScriptCallback = function(data)
 {
-    let obj = new POSITION(0,0);
+    let obj = new POSITION();
     if(data.message==="success") {
         obj.setLat(parseFloat(data.iss_position['latitude']));
         obj.setLng(parseFloat(data.iss_position['latitude']));
