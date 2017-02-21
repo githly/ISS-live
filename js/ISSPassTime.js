@@ -7,18 +7,20 @@ function n(n)
 
 const callISSPassTimeScript = function()
 {
-    if(LAT == 0) LAT++;
-    if(LNG == 0) LNG++;
     const script = document.createElement("script");
-    script.setAttribute("src", "http://api.open-notify.org/iss-pass.json?lat="+LAT.toFixed(4)+"&lon="+LNG.toFixed(4)+"&callback=ISSPassTimeScriptCallback");
+    script.setAttribute("src", "http://api.open-notify.org/iss-pass.json?lat="+POS.lat.toFixed(4)+"&lon="+POS.lng.toFixed(4)+"&callback=ISSPassTimeScriptCallback");
     document.body.appendChild(script);
     script.parentNode.removeChild(script);
 }
 const ISSPassTimeScriptCallback = function(data)
 {
-    displayTime(data.response[0].risetime);
-    displayDuration(data.response[0].risetime);
-    document.getElementById("duration").textContent = data.response[0].duration + " seconds";
+    if(data.message=="success") {
+        displayTime(data.response[0].risetime);
+        displayDuration(data.response[0].risetime);
+        document.getElementById("duration").textContent = data.response[0].duration + " seconds";
+    } else {
+        console.log(data);
+    }
 }
 
 const convertDate = function(d)

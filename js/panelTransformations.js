@@ -23,6 +23,12 @@ const savePanelsConfig = function()
         localStorage.setItem(PANELS[item].elem.id, PANELS[item].elem.classList);
     }
 }
+const setPanelsConfig = function()
+{
+    for(let item in PANELS) {
+        PANELS[item].elem.classList = localStorage.getItem(PANELS[item].elem.id) || "panel";
+    }
+}
 
 const obeyYourMaster = function(obj)
 {
@@ -113,7 +119,10 @@ const panelTransformReady = function()
                         PANELS[item].elem.classList.remove("cloaked");
                     }
                 }
+                savePanelsConfig();
             });
+
+    setPanelsConfig();
 }
 document.addEventListener("DOMContentLoaded", function()
         {

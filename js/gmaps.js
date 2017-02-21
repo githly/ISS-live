@@ -20,9 +20,26 @@ function initMap() {
     addMarker("default", SIMPLonMARS);
 }
 
+const insertNewUserMarker = function(n, obj)
+{
+    let lat2;
+    let lng2;
+    for(let i=0; i<n; i++) {
+        lat2 = localStorage.getItem("markerLat"+i);
+        lng2 = localStorage.getItem("markerLng"+i);
+        if(obj.lat==lat2 && obj.lng==lng2) return false;
+    }
+    localStorage.setItem("markerLat"+n, obj.lat);
+    localStorage.setItem("markerLng"+n, obj.lng);
+    localStorage.setItem("selectMarkers", n+1);
+    resetSelectMarkers();
+    return true;
+}
+
 // Adds a marker to the map and push to the array.
 function addMarker(index, location)
 {
+    let n = parseInt(localStorage.getItem("selectMarkers"));
     var marker = new google.maps.Marker({
         position: location,
         map: map
@@ -30,31 +47,39 @@ function addMarker(index, location)
     switch(index) {
         case "userclick":
             markerUser = marker;
-            LAT = location.lat();
-            LNG = location.lng();
+            POS.set(location.lat(), location.lng());
+            insertNewUserMarker(n, POS);
             break;
         case "user":
             markerUser = marker;
-            LAT = location.lat;
-            LNG = location.lng;
+            POS.set(location.lat, location.lng);
+            insertNewUserMarker(n, POS);
             break;
         case "default":
             markerSimplon = marker;
             break;
         case "iss":
             markerISS = marker;
-            ISSPositions.unshift(location);
-            if(ISSPositions.length > 3600) {
-                ISSPositions.pop();
-            }
+            ISSPos.insert(location);
             break;
     }
+    //Resets markers
     setMapOnAll(null);
     markers = [];
     if(markerUser != "") markers.push(markerUser);
     if(markerSimplon != "") markers.push(markerSimplon);
     if(markerISS != "") markers.push(markerISS);
     setMapOnAll(map);
+
+    //Create Polyline on the map
+    var flightPath = new google.maps.Polyline({
+        path: ISSPos.array,
+        geodesic: true,
+        strokeColor: '#FF0000',
+        strokeOpacity: 1.0,
+        strokeWeight: 5
+    });
+    flightPath.setMap(map);
 }
 
 function setMapOnAll(map)
@@ -63,3 +88,5 @@ function setMapOnAll(map)
         markers[i].setMap(map);
     }
 }
+
+
