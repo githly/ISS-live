@@ -9,10 +9,10 @@ const buildPlaces = function()
             if(Object.keys(object).length==0) {
                 object = {cities: arrayCities, country: obj.country};
                 arrayCountries.push(object);
-                arrayCities.push({city:obj.city, lat:obj.lat, lon:obj.lon});
+                arrayCities.push({city:obj.city, lat:obj.lat, lng:obj.lng});
             } else {
                 if(obj.country == object.country) {
-                    arrayCities.push({city:obj.city, lat:obj.lat, lon:obj.lon});
+                    arrayCities.push({city:obj.city, lat:obj.lat, lng:obj.lng});
                 } else {
                     arrayCities = [];
                     object = {cities: arrayCities, country: obj.country};
