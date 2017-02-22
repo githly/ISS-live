@@ -94,12 +94,8 @@ class SelectMarkers
 let selectMarkers = new SelectMarkers();
 
 var map;
-let image = {
-    // Adresse de l'icône personnalisée
-    url: 'simplon.png',
-    // Taille de l'icône personnalisé
-};
-
+var imageSIMPLon = 'media/img/simplon.png';
+var imageISS = "media/img/simplon.png';
 class Marker
 {
     constructor(obj)
@@ -115,7 +111,7 @@ class Marker
     {
         if(this.marker) this.marker.setMap(null);
         this.marker = obj;
-        this.marker.icon = this.icon;
+        this.marker.setIcon(this.icon);
         if(map) this.marker.setMap(map);
     }
     getPos()
@@ -124,7 +120,7 @@ class Marker
     }
 }
 let markerUser = new Marker(null);
-let markerISS = new Marker(null);
-let markerSimplon = new Marker(image);
+let markerISS = new Marker(imageISS);
+let markerSimplon = new Marker(imageSIMPLon);
 
 const PLACES = buildPlaces();
