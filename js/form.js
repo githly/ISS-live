@@ -8,32 +8,20 @@ const emptySelect = function(list)
 }
 const resetSelectMarkers = function()
 {
-    let obj;
-    selectMarkers = [];
-    const n = parseInt(localStorage.getItem("selectMarkers"));
-    for(let i=0; i<n; i++) {
-        obj = new POSITION();
-        obj.setLat(localStorage.getItem("markerLat"+i));
-        obj.setLng(localStorage.getItem("markerLng"+i));
-        selectMarkers.push(obj);
-    }
-
+    selectMarkers.reload();
     let list = document.getElementById("markers");
     emptySelect(list);
 
-    for(let i in selectMarkers) {
-        document.getElementById("markers").options.add(new Option("Marker " + i, i));
+    for(let i in selectMarkers.array) {
+        list.options.add(new Option("Marker " + i, i));
 
-        document.getElementById('markers').addEventListener("change", function(e)
+        list.addEventListener("change", function(e)
                 {
-                    let list = document.getElementById("markers");
-                    let IndexSelect = list.options[list.selectedIndex].value;
+                    let IndexSelect = e.target.options[e.target.selectedIndex].value;
 
-                    let obj;
-                    if (IndexSelect != "city"){
-                        obj = selectMarkers[IndexSelect];
-                    } else {
-                        obj = SIMPLonMARS;
+                    let obj = new POSITION();
+                    if (IndexSelect != "marker"){
+                        obj = selectMarkers.array[IndexSelect];
                     }
 
                     document.getElementById("latitude").value = obj.lat;
@@ -80,11 +68,9 @@ document.addEventListener("DOMContentLoaded", function(e)
                         let CountrySelect = countries.options[countries.selectedIndex].value;
                         let CitySelect = cities.options[cities.selectedIndex].value;
 
-                        let obj;
+                        let obj = new POSITION();
                         if (CitySelect != "city"){
                             obj = PLACES[CountrySelect].cities[CitySelect];
-                        } else {
-                            obj = SIMPLonMARS;
                         }
 
                         document.getElementById("latitude").value = obj.lat;
@@ -99,18 +85,16 @@ document.addEventListener("DOMContentLoaded", function(e)
                         let obj = new POSITION();
                         obj.setLat(parseFloat(document.getElementById('latitude').value));// Recupere la latitude
                         obj.setLng(parseFloat(document.getElementById('longitude').value)); // Recupere la longitude
-                        if(map!=undefined) {
-                            addMarker("user", obj);
-                            map.panTo(markerUser.getPosition());
-                        }
+                        addMarker("user", obj);
+                        if(map) map.panTo(markerUser.getPos());
                     });// End Submit
 
             // clear le formulaire
             document.getElementById('clear').addEventListener("click", function(e)
                     {
                         document.getElementById('form').reset();
-                        markerUser = "";
-                        if(map!=undefined) map.panTo(markerSimplon.getPosition());
+                        markerUser.clear();
+                        if(map) map.panTo(markerSimplon.getPos());
                     }); // End Clear
 
             // Vider le local Storage

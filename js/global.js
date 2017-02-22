@@ -1,8 +1,14 @@
+if(localStorage.getItem("selectMarkers")==null || localStorage.getItem("ISSPosition")==null) {
+    localStorage.clear();
+    localStorage.setItem("selectMarkers", 0);
+    localStorage.setItem("ISSPosition", 0);
+}
+
 class ISSPositions
 {
     constructor()
     {
-        this.array = [];
+        this.array = new Array();
     }
     insert(obj)
     {
@@ -18,8 +24,9 @@ class POSITION
 {
     constructor()
     {
-        this.lat = SIMPLonLat;
-        this.lng = SIMPLonLng;
+        this.lat = new Number();
+        this.lng = new Number();
+        this.set(SIMPLonLat,SIMPLonLng);
     }
     setLat(latitude)
     {
@@ -39,21 +46,79 @@ class POSITION
         this.setLng(longitude);
     }
 }
-let POS = new POSITION(SIMPLonLat, SIMPLonLng);
-let SIMPLonMARS = new POSITION(SIMPLonLat, SIMPLonLng);
+let POS = new POSITION();
+let SIMPLonMARS = new POSITION();
+
+class SelectMarkers
+{
+    constructor()
+    {
+        this.array = new Array();
+        this.load();
+    }
+    reload()
+    {
+        this.array = new Array();
+        this.load();
+    }
+    load()
+    {
+        let obj;
+        const n = parseInt(localStorage.getItem("selectMarkers"));
+        for(let i=0; i<n; i++) {
+            obj = new POSITION();
+            obj.setLat(localStorage.getItem("markerLat"+i));
+            obj.setLng(localStorage.getItem("markerLng"+i));
+            this.array.push(obj);
+        }
+    }
+    insert(obj)
+    {
+        let lat2;
+        let lng2;
+        const n = parseInt(localStorage.getItem("selectMarkers"));
+
+        for(let i=0; i<n; i++) {
+            lat2 = localStorage.getItem("markerLat"+i);
+            lng2 = localStorage.getItem("markerLng"+i);
+            if(obj.lat==lat2 && obj.lng==lng2) return false;
+        }
+
+        localStorage.setItem("markerLat"+n, obj.lat);
+        localStorage.setItem("markerLng"+n, obj.lng);
+        localStorage.setItem("selectMarkers", n+1);
+        resetSelectMarkers();
+        return true;
+    }
+}
+let selectMarkers = new SelectMarkers();
 
 var map;
-var markers = [];
-let markerUser = "";
-let markerISS = "";
-let markerSimplon = "";
-
-let selectMarkers = [];
+class Marker
+{
+    constructor(obj)
+    {
+        this.marker = undefined;
+        this.icon = obj;
+    }
+    clear()
+    {
+        this.marker = undefined;
+    }
+    reset(obj)
+    {
+        if(this.marker) this.marker.setMap(null);
+        this.marker = obj;
+        this.marker.icon = this.icon;
+        if(map) this.marker.setMap(map);
+    }
+    getPos()
+    {
+        return this.marker.getPosition();
+    }
+}
+let markerUser = new Marker(null);
+let markerISS = new Marker(null);
+let markerSimplon = new Marker(null);
 
 const PLACES = buildPlaces();
-
-if(localStorage.getItem("selectMarkers")==null || localStorage.getItem("ISSPosition")==null) {
-    localStorage.clear();
-    localStorage.setItem("selectMarkers", 0);
-    localStorage.setItem("ISSPosition", 0);
-}
