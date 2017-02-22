@@ -233,11 +233,32 @@ select, button{
 
 /* --------------------------------------------------------- Structure des TItres */
 
+.center {
+	margin:0 auto; 
+}
+
 .dflex {
   display: flex;
   justify-content: space-around;
 }
 
+/*.containflex {
+	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+
+    align-items: center;
+	flex-wrap:row;
+	
+}
+.basis {
+	flex-basis:100%;
+}
+*/
 .logo {
   height:120px;
 }

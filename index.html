@@ -45,20 +45,8 @@
             </button>
         </div>
         <div class="panel" id="bottomleft">
-              <h2>
-                  User position
-              </h2>
-              <p>
-              Latitude :
-              <span id="userLatitude"></span>
-              </p>
-              <p>
-              Longitude :
-              <span id="userLongitude"></span>
-              </p>
-              <button id="recenterUser">
-                  Recenter on User
-              </button>
+             <h2>Play the Game </h2>
+			 <p>Découvre où se trouve la station spatiale internationale et quand elle sera au dessus de toi. Utilise le formulaire pour indiquer une position précise ou sélectionne une ville de ton choix.</p>
               <img class="transformButton" src="media/img/BottomLeft.png" alt="Bottom Left" />
         </div>
         <div class="panel" id="bottomright">
@@ -101,14 +89,32 @@
                       <option value="city">-- City --</option>
                   </select>
               </fieldset>
-              <fieldset>
+			  
+			  <fieldset>
+			  <legend>Historique des positions</legend>
+			  <select class="inline" id="markers">
+                      <option value="marker">-- Markers --</option>
+                  </select>
+			  <input class="inline" id="storage" type="button" name="storage" value="Clear Storage" />
+                  <input class="inline" id="clear" type="button" name="clear" value="Clear Marker" />
+				  <input class="inline" type="submit" name="name" value="Submit" />
+			  </fieldset>
+              <fieldset class="center">
+			  <legend>Historique des positions</legend>
                   <select class="inline" id="markers">
                       <option value="marker">-- Markers --</option>
                   </select>
                   <input class="inline" id="storage" type="button" name="storage" value="Clear Storage" />
-                  <input class="inline" type="submit" name="name" value="Submit" />
                   <input class="inline" id="clear" type="button" name="clear" value="Clear Marker" />
+				  <input class="inline" type="submit" name="name" value="Submit" />
               </fieldset>
+			  <!--<fieldset>
+                <legend>Votre position</legend>
+                  <label for="latitude"></label>
+                  <input id="latitude" type="number" step="any" name="latitude" value="" placeholder="latitude">
+                  <label for="longitude"></label>
+                  <input id="longitude" type="number" step="any" name="longitude" value="" placeholder="longitude">
+              </fieldset>-->
 
           </form>
           <img class="transformButton" src="media/img/Bottom.png" alt="bottom Arrow" />
@@ -116,6 +122,8 @@
             </button>
         </div>
         <div class="panel" id="left">
+			<div class="containflex">
+			<div class="basis">
               <h2>
                   ISS position
               </h2>
@@ -130,6 +138,24 @@
               <button id="recenterISS">
                   Recenter on ISS
               </button>
+			  </div>
+			  <div class="basis">
+			   <h2>
+                  User position
+              </h2>
+              <p>
+              Latitude :
+              <span id="userLatitude"></span>
+              </p>
+              <p>
+              Longitude :
+              <span id="userLongitude"></span>
+              </p>
+              <button id="recenterUser">
+                  Recenter on User
+              </button>
+			  </div>
+			  </div>
               <img class="transformButton" src="media/img/Left.png" alt="Left Arrow" />
 
         </div>
