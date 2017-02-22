@@ -1,26 +1,9 @@
 let hourformat = false;
+let failurePassTime = true;
 
 function n(n)
 {
     return n > 9 ? "" + n: "0" + n;
-}
-
-const callISSPassTimeScript = function()
-{
-    const script = document.createElement("script");
-    script.setAttribute("src", "http://api.open-notify.org/iss-pass.json?lat="+POS.lat.toFixed(4)+"&lon="+POS.lng.toFixed(4)+"&callback=ISSPassTimeScriptCallback");
-    document.body.appendChild(script);
-    script.parentNode.removeChild(script);
-}
-const ISSPassTimeScriptCallback = function(data)
-{
-    if(data.message=="success") {
-        displayTime(data.response[0].risetime);
-        displayDuration(data.response[0].risetime);
-        document.getElementById("duration").textContent = convertDuration(data.response[0].duration);
-    } else {
-        console.log(data);
-    }
 }
 
 const convertDate = function(d)
@@ -79,10 +62,44 @@ const displayDuration = function(timestamp)
     document.getElementById("countdown").textContent = convertDuration(duration);
 }
 
+const callISSPassTimeScript = function()
+{
+    failurePassTime = true;
+    const script = document.createElement("script");
+    script.setAttribute("src", "http://api.open-notify.org/iss-pass.json?lat="+POS.lat.toFixed(4)+"&lon="+POS.lng.toFixed(4)+"&callback=ISSPassTimeScriptCallback");
+    document.head.appendChild(script);
+    document.head.removeChild(script);
+}
+const ISSPassTimeScriptCallback = function(data)
+{
+    failurePassTime = false;
+    if(data.message=="success") {
+        displayTime(data.response[0].risetime);
+        displayDuration(data.response[0].risetime);
+        document.getElementById("duration").textContent = convertDuration(data.response[0].duration);
+    } else {
+        console.log(data);
+    }
+    setTimeout(callPassTimeScript, 1000);
+}
+const callPassTimeScript = function()
+{
+    if(failurePassTime) {
+        console.info("Attempting to start ISSPassTime script call");
+        displayTime(Math.floor((new Date().getTime())/1000));
+        document.getElementById("countdown").textContent = "XX:XX:XX";
+        document.getElementById("duration").textContent = "XX:XX:XX";
+    }
+    callISSPassTimeScript();
+}
+
 document.addEventListener("DOMContentLoaded", function(e)
         {
-            //callISSPassTimeScript();
-            //setInterval(callISSPassTimeScript, 1000);
+            callPassTimeScript();
+            setInterval(function()
+                    {
+                        callPassTimeScript();
+                    }, 70000);
             document.getElementById("hourformat").addEventListener("click", function(e)
                     {
                         hourformat = !hourformat;
