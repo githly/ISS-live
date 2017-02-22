@@ -29,7 +29,7 @@
                   <li><a href="https://guillotjessica.github.io/portfolio/">Jessica</a></li>
                   <li><a href="http://laurenebergman.com">Laurène</a></li>
               </ul>
-            <button class="transformButton">
+              <img class="transformButton" src="media/img/TopLeft.png" alt="Top Left Arrow" />
 
             </button>
         </div>
@@ -41,7 +41,7 @@
                   <li><a href="https://twitter.com/astro_kimbrough">Shane Kimbrough</a></li>
                   <li><a href="https://twitter.com/astropeggy">Peggy Whiteson</a></li>
                 </ul>
-            <button class="transformButton">
+                <img class="transformButton" src="media/img/TopRight.png" alt="Top Right Arrow" />
 
             </button>
         </div>
@@ -60,8 +60,7 @@
               <button id="recenterUser">
                   Recenter on User
               </button>
-            <button class="transformButton">
-
+              <img class="transformButton" src="media/img/BottomLeft.png" alt="Bottom Left" />
             </button>
         </div>
         <div class="panel" id="bottomright">
@@ -70,7 +69,7 @@
               <li><a href="https://www.nasa.gov/">NASA</a></li>
               <li><a href="https://www.nasa.gov/multimedia/nasatv/index.html#public">NASA TV</a></li>
         </ul>
-            <button class="transformButton">
+        <img class="transformButton" src="media/img/BottomRightArrow.png" alt="Bottom Arrow" />
 
             </button>
         </div>
@@ -78,19 +77,21 @@
           <h1>
               ISS Live
           </h1>
-            <button class="transformButton">
+          <img class="transformButton" src="media/img/Top.png" alt="Top Arrow" />
 
             </button>
         </div>
         <div class="panel" id="bottom">
           <form id="form">
               <fieldset>
+                <legend>Votre position</legend>
                   <label for="latitude"></label>
                   <input id="latitude" type="number" step="any" name="latitude" value="" placeholder="latitude">
                   <label for="longitude"></label>
                   <input id="longitude" type="number" step="any" name="longitude" value="" placeholder="longitude">
               </fieldset>
               <fieldset>
+                <legend>Selectionne une position</legend>
                   <select id="countries">
                       <option value="country">-- Country --</option>
                   </select>
@@ -99,15 +100,16 @@
                   </select>
               </fieldset>
               <fieldset>
-                  <select id="markers">
+                  <select class="inline" id="markers">
                       <option value="marker">-- Markers --</option>
                   </select>
-                  <input id="storage" type="button" name="storage" value="Clear Storage" />
+                  <input class="inline" id="storage" type="button" name="storage" value="Clear Storage" />
+                  <input class="inline" type="submit" name="name" value="Submit" />
+                  <input class="inline" id="clear" type="button" name="clear" value="Clear Marker" />
               </fieldset>
-              <input type="submit" name="name" value="Submit" />
-              <input id="clear" type="button" name="clear" value="Clear Marker" />
+
           </form>
-            <button class="transformButton">
+          <img class="transformButton" src="media/img/Bottom.png" alt="bottom Arrow" />
 
             </button>
         </div>
@@ -126,7 +128,7 @@
               <button id="recenterISS">
                   Recenter on ISS
               </button>
-            <button class="transformButton">
+              <img class="transformButton" src="media/img/Left.png" alt="Left Arrow" />
 
             </button>
         </div>
@@ -147,21 +149,10 @@
               </p>
               <p id="duration"></p>
               <button id="hourformat">Change Hour Format</button>
-            <button class="transformButton">
-
-            </button>
+            <img class="transformButton" src="media/img/RightArrow.png" alt="Right Arrow" />
         </div>
 
-        <button id="transformButton">
-            X
-        </button>
+      <img id="transformButton" src="media/img/fullScreen.png" alt="full screen button" />
         <div id="map"></div>
-
-
-
-
-
-
-
     </body>
 </html>

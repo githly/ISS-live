@@ -81,7 +81,28 @@ html, body{
 {
     height: calc(100vh - 19vh - 19vh);
 }
+fieldset{
+  width: 45%;
+  float: left;
+  height: 3em;
+  padding-left: 2%;
+  margin-top: 2%;
 
+
+}
+fieldset:last-of-type{
+  width: 94%;
+  border: none;
+  display: inline;
+}
+select, button{
+  -webkit-appearance: none;
+  		-moz-appearance: none;
+  		appearance: none;
+      border: none;
+      padding: 0.3em;
+      margin: 0.3em 0;
+}
 .panel .transformButton
 {
     position: absolute;
@@ -117,7 +138,7 @@ html, body{
 #bottom .transformButton
 {
     top: 0;
-    left: 50%;
+    left: 45%;
     transform: translateX(-50%):
 }
 #left .transformButton
