@@ -7,6 +7,7 @@ class Panel
         this.elem = document.getElementById(id);
         this.masters = [];
         this.slaves = [];
+        this.createEventListener();
     }
     addMaster(obj)
     {
@@ -15,6 +16,18 @@ class Panel
     addSlave(obj)
     {
         this.slaves.push(obj);
+    }
+    addMasters()
+    {
+        for(let i in arguments) {
+            this.addMaster(arguments[i]);
+        }
+    }
+    addSlaves()
+    {
+        for(let i in arguments) {
+            this.addSlave(arguments[i]);
+        }
     }
     hasMasters()
     {
@@ -43,6 +56,7 @@ class Panel
                     if(this.slaves[i].containsStyle("cloaked")) {
                         if(this.slaves[i].obeyYourMaster()) {
                             this.slaves[i].addStyle("hidden");
+                            this.slaves[i].removeStyle("cloaked");
                         }
                     }
                 } else {
@@ -75,6 +89,10 @@ class Panel
     {
         localStorage.setItem(this.elem.id, this.elem.classList);
     }
+    createEventListener()
+    {
+        this.elem.getElementsByClassName("transformButton")[0].addEventListener("click", panelTransform);
+    }
 }
 class Panels
 {
@@ -85,6 +103,12 @@ class Panels
     insert(obj)
     {
         this.array.push(obj);
+    }
+    insertAll()
+    {
+        for(let i in arguments) {
+            this.insert(arguments[i]);
+        }
     }
     search(obj)
     {
@@ -117,8 +141,8 @@ let PANELS = new Panels();
 
 const panelTransform = function(e)
 {
+    e.target.classList.toggle("active");
     let obj = PANELS.search(e.target.parentNode);
-    console.log(e.target.parentNode);
     if(obj.obeyYourMaster()) {
         obj.toggleStyle("hidden");
         if(obj.hasMasters()) {
@@ -135,47 +159,24 @@ const panelTransform = function(e)
 const panelTransformReady = function()
 {
     let tl = new Panel("topleft");
-    PANELS.insert(tl);
     let tr = new Panel("topright");
-    PANELS.insert(tr);
     let bl = new Panel("bottomleft");
-    PANELS.insert(bl);
     let br = new Panel("bottomright");
-    PANELS.insert(br);
     let t = new Panel("top");
-    PANELS.insert(t);
     let b = new Panel("bottom");
-    PANELS.insert(b);
     let l = new Panel("left");
-    PANELS.insert(l);
     let r = new Panel("right");
-    PANELS.insert(r);
 
-    tl.addMaster(t);
-    tl.addMaster(l);
-    tr.addMaster(t);
-    tr.addMaster(r);
-    bl.addMaster(b);
-    bl.addMaster(l);
-    br.addMaster(b);
-    br.addMaster(r);
-    t.addSlave(tl);
-    t.addSlave(tr);
-    b.addSlave(bl);
-    b.addSlave(br);
-    l.addSlave(tl);
-    l.addSlave(bl);
-    r.addSlave(tr);
-    r.addSlave(br);
+    tl.addMasters(t,l);
+    tr.addMasters(t,r);
+    bl.addMasters(b,l);
+    br.addMasters(b,r);
+    t.addSlaves(tl,tr);
+    b.addSlaves(bl,br);
+    l.addSlaves(tl,bl);
+    r.addSlaves(tr,br);
 
-    document.getElementById("topleft").getElementsByClassName("transformButton")[0].addEventListener("click", panelTransform);
-    document.getElementById("topright").getElementsByClassName("transformButton")[0].addEventListener("click", panelTransform);
-    document.getElementById("bottomleft").getElementsByClassName("transformButton")[0].addEventListener("click", panelTransform);
-    document.getElementById("bottomright").getElementsByClassName("transformButton")[0].addEventListener("click", panelTransform);
-    document.getElementById("top").getElementsByClassName("transformButton")[0].addEventListener("click", panelTransform);
-    document.getElementById("bottom").getElementsByClassName("transformButton")[0].addEventListener("click", panelTransform);
-    document.getElementById("left").getElementsByClassName("transformButton")[0].addEventListener("click", panelTransform);
-    document.getElementById("right").getElementsByClassName("transformButton")[0].addEventListener("click", panelTransform);
+    PANELS.insertAll(tl,tr,bl,br,t,b,l,r);
 
     document.getElementById("transformButton").addEventListener("click", function(e)
             {

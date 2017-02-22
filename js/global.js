@@ -8,7 +8,7 @@ class ISSPositions
 {
     constructor()
     {
-        this.array = new Array();
+        this.array = [];
     }
     insert(obj)
     {
@@ -24,8 +24,8 @@ class POSITION
 {
     constructor()
     {
-        this.lat = new Number();
-        this.lng = new Number();
+        this.lat = 0;
+        this.lng = 0;
         this.set(SIMPLonLat,SIMPLonLng);
     }
     setLat(latitude)
@@ -53,12 +53,12 @@ class SelectMarkers
 {
     constructor()
     {
-        this.array = new Array();
+        this.array = [];
         this.load();
     }
     reload()
     {
-        this.array = new Array();
+        this.array = [];
         this.load();
     }
     load()
