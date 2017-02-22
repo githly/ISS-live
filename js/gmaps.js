@@ -26,16 +26,19 @@ function addMarker(index, location)
     });
     switch(index) {
         case "userclick":
+            marker.setAnimation(google.maps.Animation.DROP);
             markerUser.reset(marker);
             POS.set(location.lat(), location.lng());
             selectMarkers.insert(POS);
             break;
         case "user":
+            marker.setAnimation(google.maps.Animation.DROP);
             markerUser.reset(marker);
             POS.set(location.lat, location.lng);
             selectMarkers.insert(POS);
             break;
         case "default":
+            marker.setAnimation(google.maps.Animation.BOUNCE);
             markerSimplon.reset(marker);
             break;
         case "iss":

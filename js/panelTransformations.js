@@ -118,6 +118,7 @@ let PANELS = new Panels();
 const panelTransform = function(e)
 {
     let obj = PANELS.search(e.target.parentNode);
+    console.log(e.target.parentNode);
     if(obj.obeyYourMaster()) {
         obj.toggleStyle("hidden");
         if(obj.hasMasters()) {
