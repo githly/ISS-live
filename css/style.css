@@ -17,6 +17,7 @@ menu, nav, output, section {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    font-family: sans-serif;
 }
 
 /* hyphens & too long words go to next line */
@@ -141,8 +142,8 @@ html, body{
     width: 20px;
     height: 20px;
 }
-#topright, #right, #bottomright{
-  padding-left: 2%;
+#topright, #right, #bottomright, #topleft, #left, #bottomleft{
+  padding: 1% 0 0 2%;
 }
 .selected{
     color: black;
@@ -206,7 +207,7 @@ h1 {
 }
 
 h2 {
-
+margin-top: 1%;
 }
 
 h3 {
