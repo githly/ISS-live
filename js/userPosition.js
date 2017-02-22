@@ -11,11 +11,11 @@ const userPositionReady = function()
     setInterval(displayUserPosition, 1000);
     document.getElementById("recenterUser").addEventListener("click", function()
             {
-                if(map!=undefined) {
-                    if(markerUser!="") {
+                if(map) {
+                    if(markerUser.marker) {
                         map.panTo(markerUser.getPos());
                     } else {
-                        if(markerSimplon!="") map.panTo(markerSimplon.getPos());
+                        map.panTo(markerSimplon.getPos());
                     }
                 }
             });
