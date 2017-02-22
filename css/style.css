@@ -233,6 +233,16 @@ select, button{
 
 /* --------------------------------------------------------- Structure des TItres */
 
+.top {
+	position: absolute; 
+	top:15;
+}
+
+.bottom {
+	bottom:0;
+	position:absolute;
+}
+
 .center {
 	margin:0 auto; 
 }
