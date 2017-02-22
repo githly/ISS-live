@@ -81,8 +81,8 @@ const displayDuration = function(timestamp)
 
 document.addEventListener("DOMContentLoaded", function(e)
         {
-            callISSPassTimeScript();
-            setInterval(callISSPassTimeScript, 1000);
+            //callISSPassTimeScript();
+            //setInterval(callISSPassTimeScript, 1000);
             document.getElementById("hourformat").addEventListener("click", function(e)
                     {
                         hourformat = !hourformat;
