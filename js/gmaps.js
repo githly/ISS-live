@@ -39,12 +39,22 @@ function addMarker(index, location)
             break;
         case "default":
             markerSimplon.reset(marker);
+            marker.addListener("click", function(e)
+                    {
+                        let win = window.open("http://simplonmars.eu/", "_blank");
+                        win.focus();
+                    });
             break;
         case "iss":
             markerISS.reset(marker);
             ISSPos.insert(location);
             break;
     }
+
+    marker.addListener("click", function(e)
+            {
+                map.panTo(marker.getPosition());
+            });
 
     //Create Polyline on the map
     var flightPath = new google.maps.Polyline({
