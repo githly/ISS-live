@@ -57,9 +57,9 @@ document.addEventListener("DOMContentLoaded", function(e)
                         let cities = document.getElementById("cities");
                         emptySelect(cities);
 
-                        let sel = list.options[list.selectedIndex].value;
-                        if(sel != "country") {
-                            let array = PLACES[sel].cities;
+                        let countrySelected = countries.options[countries.selectedIndex].value;
+                        if(countrySelected != "country") {
+                            let array = PLACES[countrySelected].cities;
                             if (array) {
                                 var city;
                                 for (let i in array) {
