@@ -13,9 +13,9 @@ const userPositionReady = function()
             {
                 if(map!=undefined) {
                     if(markerUser!="") {
-                        map.panTo(markerUser.getPosition());
+                        map.panTo(markerUser.getPos());
                     } else {
-                        if(markerSimplon!="") map.panTo(markerSimplon.getPosition());
+                        if(markerSimplon!="") map.panTo(markerSimplon.getPos());
                     }
                 }
             });
