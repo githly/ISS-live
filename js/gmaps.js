@@ -15,6 +15,12 @@ function initMap() {
 
     // Adds a marker at the center of the map.
     addMarker("default", SIMPLonMARS);
+
+    initDayNightLib();
+
+    new DayNightOverlay({
+            map: map
+    });
 }
 
 // Adds a marker to the map and push to the array.
