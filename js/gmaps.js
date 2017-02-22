@@ -38,7 +38,6 @@ function addMarker(index, location)
             selectMarkers.insert(POS);
             break;
         case "default":
-            marker.setAnimation(google.maps.Animation.BOUNCE);
             markerSimplon.reset(marker);
             break;
         case "iss":
