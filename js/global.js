@@ -94,6 +94,12 @@ class SelectMarkers
 let selectMarkers = new SelectMarkers();
 
 var map;
+let image = {
+    // Adresse de l'icône personnalisée
+    url: 'simplon.png',
+    // Taille de l'icône personnalisé
+};
+
 class Marker
 {
     constructor(obj)
@@ -119,6 +125,6 @@ class Marker
 }
 let markerUser = new Marker(null);
 let markerISS = new Marker(null);
-let markerSimplon = new Marker(null);
+let markerSimplon = new Marker(image);
 
 const PLACES = buildPlaces();
