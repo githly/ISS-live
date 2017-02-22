@@ -1,5 +1,5 @@
 // In the following example, markers appear when the user clicks on the map.
-// The markers are stored in an array.
+
 // The user can then click an option to hide, show or delete the markers.
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'),
@@ -18,6 +18,12 @@ function initMap() {
 
     // Adds a marker at the center of the map.
     addMarker("default", SIMPLonMARS);
+
+    initDayNightLib();
+
+    new DayNightOverlay({
+            map: map
+    });
 }
 
 const insertNewUserMarker = function(n, obj)
