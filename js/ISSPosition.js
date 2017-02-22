@@ -7,7 +7,7 @@ const displayISSPosition = function(obj)
     document.getElementById('ISSLongitude').textContent = obj.lng.toFixed(4);
 }
 
-const ISSPositionScriptFailed = function()
+const startISSPositionScript = function()
 {
     console.info("Attempting to start ISSPosition script call");
     displayTime(Math.floor((new Date().getTime())/1000));
@@ -17,7 +17,7 @@ const ISSPositionScriptFailed = function()
 }
 const callISSPositionScript = function()
 {
-    failurePositionID = setTimeout(ISSPositionScriptFailed, 70000);
+    failurePositionID = setTimeout(startISSPositionScript, 70000);
     let script = document.createElement("script");
     script.src = "http://api.open-notify.org/iss-now.json?callback=ISSPositionScriptCallback";
     document.head.appendChild(script);
@@ -40,7 +40,7 @@ const ISSPositionScriptCallback = function(data)
 
 document.addEventListener("DOMContentLoaded",function(e)
         {
-            callISSPositionScript();
+            startISSPositionScript();
 
             document.getElementById("recenterISS").addEventListener("click", function(e)
                     {

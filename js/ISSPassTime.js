@@ -62,7 +62,7 @@ const displayDuration = function(timestamp)
     document.getElementById("countdown").textContent = convertDuration(duration);
 }
 
-const ISSPassTimeScriptFailed = function()
+const startISSPassTimeScript = function()
 {
     console.info("Attempting to start ISSPassTime script call");
     displayTime(Math.floor((new Date().getTime())/1000));
@@ -72,7 +72,7 @@ const ISSPassTimeScriptFailed = function()
 }
 const callISSPassTimeScript = function()
 {
-    failurePassTimeID = setTimeout(ISSPassTimeScriptFailed, 70000);
+    failurePassTimeID = setTimeout(startISSPassTimeScript, 70000);
     const script = document.createElement("script");
     script.setAttribute("src", "http://api.open-notify.org/iss-pass.json?lat="+POS.lat.toFixed(4)+"&lon="+POS.lng.toFixed(4)+"&callback=ISSPassTimeScriptCallback");
     document.head.appendChild(script);
@@ -93,7 +93,7 @@ const ISSPassTimeScriptCallback = function(data)
 
 document.addEventListener("DOMContentLoaded", function(e)
         {
-            callISSPassTimeScript();
+            startISSPassTimeScript();
 
             document.getElementById("hourformat").addEventListener("click", function(e)
                     {
