@@ -20,20 +20,20 @@
         <script type="text/javascript" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAG1j4xk810I0pIzZ3N6_GAg9D_120De8&callback=initMap"></script>
     </head>
     <body>
+      <div class="background">
         <div class="panel" id="topleft">
-              <ul>
-                <li><a href="http://simplonmars.eu">Made @SIMPLonMARS by</a></li>
-
-                  <li><a href="https://metallou.github.io/portfolio/">Kévin</a></li>
-                  <li><a href="https://darkilen.github.io/portfolio/">Samuel</a></li>
-                  <li><a href="https://guillotjessica.github.io/portfolio/">Jessica</a></li>
-                  <li><a href="http://laurenebergman.com">Laurène</a></li>
-              </ul>
+          <h2> Live Feed</h2>
+            <ul>
+              <li><a href="http://iss.destination-orbite.net/live.php">Destination Orbite</a></li>
+              <li><a href="https://www.nasa.gov/">NASA</a></li>
+              <li><a href="https://www.nasa.gov/multimedia/nasatv/index.html#public">NASA TV</a></li>
+        </ul>
             <button class="transformButton">
 
             </button>
         </div>
         <div class="panel" id="topright">
+          <h2> ISS Crew Twitter</h2>
               <ul>
                   <li><a href="https://twitter.com/NASA">NASA</a></li>
                   <li><a href="https://twitter.com/space_station"></a></li>
@@ -46,38 +46,33 @@
             </button>
         </div>
         <div class="panel" id="bottomleft">
-              <h2>
-                  User position
-              </h2>
-              <p>
-              Latitude :
-              <span id="userLatitude"></span>
-              </p>
-              <p>
-              Longitude :
-              <span id="userLongitude"></span>
-              </p>
-              <button id="recenterUser">
-                  Recenter on User
-              </button>
+              <a class="twitter-timeline" href="https://twitter.com/NASA">Tweets by NASA</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
             <button class="transformButton">
 
             </button>
         </div>
         <div class="panel" id="bottomright">
+
+        <h2>Our Crew</h2>
             <ul>
-              <li><a href="http://iss.destination-orbite.net/live.php">Destination Orbite</a></li>
-              <li><a href="https://www.nasa.gov/">NASA</a></li>
-              <li><a href="https://www.nasa.gov/multimedia/nasatv/index.html#public">NASA TV</a></li>
-        </ul>
+                <li><a href="https://metallou.github.io/portfolio/">Kévin</a></li>
+                <li><a href="https://darkilen.github.io/portfolio/">Samuel</a></li>
+                <li><a href="https://guillotjessica.github.io/portfolio/">Jessica</a></li>
+                <li><a href="http://laurenebergman.com">Laurène</a></li>
+            </ul>
             <button class="transformButton">
 
             </button>
         </div>
         <div class="panel" id="top">
-          <h1>
-              ISS Live
-          </h1>
+          <div class="dflex">
+            <img src="media/img/nasa.png" alt="" class="logo"/>
+            <h1>
+                ISS Live
+            </h1>
+            <img src="media/img/simplonlogo.png" alt="" class="logo"/>
+          </div>
+
             <button class="transformButton">
 
             </button>
@@ -127,6 +122,20 @@
                   Recenter on ISS
               </button>
             <button class="transformButton">
+              <h2>
+                  User position
+              </h2>
+              <p>
+              Latitude :
+              <span id="userLatitude"></span>
+              </p>
+              <p>
+              Longitude :
+              <span id="userLongitude"></span>
+              </p>
+              <button id="recenterUser">
+                  Recenter on User
+              </button>
 
             </button>
         </div>
@@ -155,6 +164,8 @@
         <button id="transformButton">
             X
         </button>
+      </div>
+
         <div id="map"></div>
 
 

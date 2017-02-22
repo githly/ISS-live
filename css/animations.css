@@ -66,6 +66,7 @@
 #top.hidden
 {
     top: calc(20px + 5px - 19vh);
+
 }
 #bottom.hidden
 {
@@ -82,13 +83,13 @@
 
 .panel
 {
-    background-color: rgba(255,255,255, 1);
+    background-color: rgba(0,0,0, 1);
     transition-property: all;
     transition-duration: 2s;
 }
 .panel.cloaked
 {
-    background-color: rgba(0,0,0, 1);
+    background-color: grey;
 }
 
 #transformButton
