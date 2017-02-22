@@ -95,7 +95,7 @@ let selectMarkers = new SelectMarkers();
 
 var map;
 var imageSIMPLon = 'media/img/simplon.png';
-var imageISS = 'media/img/simplon.png';
+var imageISS = 'media/img/rocket.png';
 class Marker
 {
     constructor(obj)
