@@ -105,6 +105,7 @@ class Marker
     }
     clear()
     {
+        if(this.marker) this.marker.setMap(null);
         this.marker = undefined;
     }
     reset(obj)
