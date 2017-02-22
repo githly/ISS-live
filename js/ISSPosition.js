@@ -7,7 +7,7 @@ const displayISSPosition = function(obj)
     document.getElementById('ISSLongitude').textContent = obj.lng.toFixed(4);
 }
 
-const PositionScriptFailed = function()
+const ISSPositionScriptFailed = function()
 {
     console.info("Attempting to start ISSPosition script call");
     displayTime(Math.floor((new Date().getTime())/1000));

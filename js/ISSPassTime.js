@@ -72,7 +72,7 @@ const ISSPassTimeScriptFailed = function()
 }
 const callISSPassTimeScript = function()
 {
-    failurePassTimeID = setTimeout(ISSPassTimescriptFailed, 70000);
+    failurePassTimeID = setTimeout(ISSPassTimeScriptFailed, 70000);
     const script = document.createElement("script");
     script.setAttribute("src", "http://api.open-notify.org/iss-pass.json?lat="+POS.lat.toFixed(4)+"&lon="+POS.lng.toFixed(4)+"&callback=ISSPassTimeScriptCallback");
     document.head.appendChild(script);
