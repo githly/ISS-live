@@ -243,8 +243,9 @@ select, button{
 	position:absolute;
 }
 
-.center {
-	margin:0 auto; 
+.centerP {
+	top:30%;
+	position:absolute;
 }
 
 .dflex {
@@ -277,11 +278,13 @@ h1 {
 font-family: 'mu-th-urregular';
 text-align: center;
 font-size: 50px;
+color:#ED1E24;
 }
 
 h2 {
   font-family: 'mu-th-urregular';
-margin-top: 1%;
+margin-top: 1;
+color:#0B3D91;
 }
 
 h3 {
