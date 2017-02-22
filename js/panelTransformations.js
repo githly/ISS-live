@@ -7,7 +7,7 @@ class Panel
         this.elem = document.getElementById(id);
         this.masters = [];
         this.slaves = [];
-        this.createEventListener();
+        this.elem.getElementsByClassName("transformButton")[0].addEventListener("click", this.moveYourAssSoldier);
     }
     addMaster(obj)
     {
@@ -69,6 +69,23 @@ class Panel
             }
         }
     }
+    moveYourAssSoldier(e)
+    {
+        this.classList.toggle("active");
+        let obj = PANELS.search(this.parentNode);
+        if(obj.obeyYourMaster()) {
+            obj.toggleStyle("hidden");
+            if(obj.hasMasters()) {
+                if(!obj.containsStyle("hidden")) {
+                    obj.removeStyle("cloaked");
+                }
+            }
+        } else {
+            obj.toggleStyle("cloaked");
+        }
+        obj.aManChoosesaSlaveObeys();
+        obj.saveConfig();
+    }
     addStyle(id)
     {
         this.elem.classList.add(id);
@@ -89,9 +106,9 @@ class Panel
     {
         localStorage.setItem(this.elem.id, this.elem.classList);
     }
-    createEventListener()
+    loadConfig()
     {
-        this.elem.getElementsByClassName("transformButton")[0].addEventListener("click", panelTransform);
+        this.elem.classList = localStorage.getItem(this.elem.id) || "panel";
     }
 }
 class Panels
@@ -115,47 +132,23 @@ class Panels
         for(let i in this.array) {
             if(this.array[i].elem == obj) return this.array[i];
         }
-    }
-    saveConfig(obj)
-    {
-        localStorage.setItem(obj.id, obj.classList);
+        return null;
     }
     saveConfigs()
     {
         for(let i in this.array) {
-            this.saveConfig(this.array[i].elem);
+            this.array[i].saveConfig();
         }
-    }
-    loadConfig(obj)
-    {
-        obj.classList = localStorage.getItem(obj.id) || "panel";
     }
     loadConfigs()
     {
         for(let i in this.array) {
-            this.loadConfig(this.array[i].elem);
+            this.array[i].loadConfig();
         }
     }
 }
 let PANELS = new Panels();
 
-const panelTransform = function(e)
-{
-    e.target.classList.toggle("active");
-    let obj = PANELS.search(e.target.parentNode);
-    if(obj.obeyYourMaster()) {
-        obj.toggleStyle("hidden");
-        if(obj.hasMasters()) {
-            if(!obj.containsStyle("hidden")) {
-                obj.removeStyle("cloaked");
-            }
-        }
-    } else {
-        obj.toggleStyle("cloaked");
-    }
-    obj.aManChoosesaSlaveObeys();
-    PANELS.saveConfig(obj.elem);
-}
 const panelTransformReady = function()
 {
     let tl = new Panel("topleft");
