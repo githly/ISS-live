@@ -21,20 +21,19 @@
         <script type="text/javascript" src="js/daynightoverlay.js"></script>
     </head>
     <body>
+      <div class="background">
         <div class="panel" id="topleft">
-              <ul>
-                <li><a href="http://simplonmars.eu">Made @SIMPLonMARS by</a></li>
-
-                  <li><a href="https://metallou.github.io/portfolio/">Kévin</a></li>
-                  <li><a href="https://darkilen.github.io/portfolio/">Samuel</a></li>
-                  <li><a href="https://guillotjessica.github.io/portfolio/">Jessica</a></li>
-                  <li><a href="http://laurenebergman.com">Laurène</a></li>
-              </ul>
+<h2>Our Crew</h2>
+    <ul>
+        <li><a href="https://metallou.github.io/portfolio/">Kévin</a></li>
+        <li><a href="https://darkilen.github.io/portfolio/">Samuel</a></li>
+        <li><a href="https://guillotjessica.github.io/portfolio/">Jessica</a></li>
+        <li><a href="http://laurenebergman.com">Laurène</a></li>
+    </ul>
               <img class="transformButton" src="media/img/TopLeft.png" alt="Top Left Arrow" />
-
-            </button>
         </div>
         <div class="panel" id="topright">
+          <h2> ISS Crew Twitter</h2>
               <ul>
                   <li><a href="https://twitter.com/NASA">NASA</a></li>
                   <li><a href="https://twitter.com/space_station"></a></li>
@@ -62,25 +61,27 @@
                   Recenter on User
               </button>
               <img class="transformButton" src="media/img/BottomLeft.png" alt="Bottom Left" />
-            </button>
         </div>
         <div class="panel" id="bottomright">
+
+        <h2>Our Crew</h2>
             <ul>
               <li><a href="http://iss.destination-orbite.net/live.php">Destination Orbite</a></li>
               <li><a href="https://www.nasa.gov/">NASA</a></li>
               <li><a href="https://www.nasa.gov/multimedia/nasatv/index.html#public">NASA TV</a></li>
         </ul>
         <img class="transformButton" src="media/img/BottomRightArrow.png" alt="Bottom Arrow" />
-
-            </button>
         </div>
         <div class="panel" id="top">
-          <h1>
-              ISS Live
-          </h1>
-          <img class="transformButton" src="media/img/Top.png" alt="Top Arrow" />
+          <div class="dflex">
+            <img src="media/img/nasa.png" alt="" class="logo"/>
+            <h1>
+                ISS Live
+            </h1>
+            <img src="media/img/simplonlogo.png" alt="" class="logo"/>
+          </div>
 
-            </button>
+          <img class="transformButton" src="media/img/Top.png" alt="Top Arrow" />
         </div>
         <div class="panel" id="bottom">
           <form id="form">
@@ -131,7 +132,6 @@
               </button>
               <img class="transformButton" src="media/img/Left.png" alt="Left Arrow" />
 
-            </button>
         </div>
         <div class="panel" id="right">
               <h2>
@@ -154,6 +154,7 @@
         </div>
 
       <img id="transformButton" src="media/img/fullScreen.png" alt="full screen button" />
+      </div>
         <div id="map"></div>
     </body>
 </html>
