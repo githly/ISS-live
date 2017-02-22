@@ -44,6 +44,6 @@ document.addEventListener("DOMContentLoaded",function(e)
 
             document.getElementById("recenterISS").addEventListener("click", function(e)
                     {
-                        if(map!=undefined) map.panTo(markerISS.getPosition());
+                        if(map!=undefined) map.panTo(markerISS.getPos());
                     });
         });
