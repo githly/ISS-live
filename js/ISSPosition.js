@@ -29,7 +29,7 @@ const ISSPositionScriptCallback = function(data)
     if(data.message==="success") {
         let obj = new POSITION();
         obj.setLat(parseFloat(data.iss_position['latitude']));
-        obj.setLng(parseFloat(data.iss_position['latitude']));
+        obj.setLng(parseFloat(data.iss_position['longitude']));
         displayISSPosition(obj);
         if(map) addMarker("iss", obj);
     } else {
