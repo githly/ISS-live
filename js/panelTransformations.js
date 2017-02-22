@@ -7,6 +7,9 @@ class Panel
         this.elem = document.getElementById(id);
         this.masters = [];
         this.slaves = [];
+    }
+    createEventListener()
+    {
         this.elem.getElementsByClassName("transformButton")[0].addEventListener("click", this.moveYourAssSoldier);
     }
     addMaster(obj)
@@ -127,6 +130,12 @@ class Panels
             this.insert(arguments[i]);
         }
     }
+    createEventListeners()
+    {
+        for(let i in this.array) {
+            this.array[i].createEventListener();
+        }
+    }
     search(obj)
     {
         for(let i in this.array) {
@@ -170,6 +179,8 @@ const panelTransformReady = function()
     r.addSlaves(tr,br);
 
     PANELS.insertAll(tl,tr,bl,br,t,b,l,r);
+
+    PANELS.createEventListeners();
 
     document.getElementById("transformButton").addEventListener("click", function(e)
             {
