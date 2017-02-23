@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'mu-th-urregular';
     src: url('../media/font/mu-th-ur-regular-webfont.woff2') format('woff2'),
-         url('../media/font/mu-th-ur-regular-webfont.woff') format('woff');
+    url('../media/font/mu-th-ur-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -58,10 +58,10 @@ html, body{
 }
 
 .background {
-  top: 0vh;
-  left: 0vw;
-  background: url("../media/img/background.jpg");
-  z-index: 30;
+    top: 0vh;
+    left: 0vw;
+    background: url("../media/img/background.jpg");
+    z-index: 30;
 }
 
 #map{
@@ -82,12 +82,12 @@ html, body{
     color: grey;
 }
 #ClearMap{
-  position: absolute;
-  z-index: 200;
-  height: 3em;
-  width: 5em;
-  background-color: green;
-  color: white;
+    position: absolute;
+    z-index: 200;
+    height: 3em;
+    width: 5em;
+    background-color: green;
+    color: white;
 }
 
 #top, #bottom
@@ -99,26 +99,26 @@ html, body{
     height: calc(100vh - 19vh - 19vh);
 }
 fieldset{
-  width: 45%;
-  float: left;
-  height: 3em;
-  padding-left: 2%;
-  margin-top: 2%;
+    width: 45%;
+    float: left;
+    height: 3em;
+    padding-left: 2%;
+    margin-top: 2%;
 
 
 }
 fieldset:last-of-type{
-  width: 94%;
-  border: none;
-  display: inline;
+    width: 94%;
+    border: none;
+    display: inline;
 }
 select, button{
-  -webkit-appearance: none;
-  		-moz-appearance: none;
-  		appearance: none;
-      border: none;
-      padding: 0.3em;
-      margin: 0.3em 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    padding: 0.3em;
+    margin: 0.3em 0;
 }
 .panel .transformButton
 {
@@ -180,7 +180,7 @@ select, button{
     height: 20px;
 }
 #topright, #right, #bottomright, #topleft, #left, #bottomleft{
-  padding: 1% 0 0 2%;
+    padding: 1% 0 0 2%;
 }
 .selected{
     color: black;
@@ -234,71 +234,71 @@ select, button{
 /* --------------------------------------------------------- Structure des TItres */
 
 .top {
-	position: absolute; 
-	top:15;
+    position: absolute; 
+    top:15;
 }
 
 .bottom {
-	bottom:0;
-	position:absolute;
+    bottom:0;
+    position:absolute;
 }
 
 .centerP {
-	top:30%;
-	position:absolute;
+    top:30%;
+    position:absolute;
 }
 
 .dflex {
-  display: flex;
-  justify-content: space-around;
+    display: flex;
+    justify-content: space-around;
 }
 
 /*.containflex {
-	display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
+display: -ms-flexbox;
+display: -webkit-flex;
+display: flex;
 
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    -webkit-box-align: center;
+-ms-flex-align: center;
+-webkit-align-items: center;
+-webkit-box-align: center;
 
-    align-items: center;
-	flex-wrap:row;
-	
+align-items: center;
+flex-wrap:row;
+
 }
 .basis {
-	flex-basis:100%;
+flex-basis:100%;
 }
-*/
-.logo {
-  height:120px;
-}
+ */
+    .logo {
+        height:120px;
+    }
 
-h1 {
-font-family: 'mu-th-urregular';
-text-align: center;
-font-size: 50px;
-color:#ED1E24;
-}
+    h1 {
+        font-family: 'mu-th-urregular';
+        text-align: center;
+        font-size: 50px;
+        color:#ED1E24;
+    }
 
-h2 {
-  font-family: 'mu-th-urregular';
-margin-top: 1;
-color:#0B3D91;
-}
+    h2 {
+        font-family: 'mu-th-urregular';
+        margin-top: 1;
+        color:#0B3D91;
+    }
 
-h3 {
+    h3 {
 
-}
+    }
 
-a {
-    text-decoration: none;
-    color: grey;
-}
+    a {
+        text-decoration: none;
+        color: grey;
+    }
 
-p {
+    p {
 
-}
+    }
 
 
-/* ---------------------------------------------------------------- Media Queries */
+    /* ---------------------------------------------------------------- Media Queries */

@@ -21,168 +21,168 @@
         <script type="text/javascript" src="js/daynightoverlay.js"></script>
     </head>
     <body>
-      <div class="background">
-        <div class="panel" id="topleft">
-  <h2>ISS Live Feed</h2>
-            <ul>
-              <li><a href="http://iss.destination-orbite.net/live.php">Destination Orbite</a></li>
-              <li><a href="https://www.nasa.gov/">NASA</a></li>
-              <li><a href="https://www.nasa.gov/multimedia/nasatv/index.html#public">NASA TV</a></li>
-        </ul>
-              <img class="transformButton" src="media/img/TopLeft.png" alt="Top Left Arrow" />
-        </div>
-        <div class="panel" id="topright">
-          <h2> ISS Crew Twitter</h2>
-              <ul>
-                  <li><a href="https://twitter.com/NASA">NASA</a></li>
-                  <li><a href="https://twitter.com/space_station"></a></li>
-                  <li><a href="https://twitter.com/thom_astro">Thomas Pesquet</a></li>
-                  <li><a href="https://twitter.com/astro_kimbrough">Shane Kimbrough</a></li>
-                  <li><a href="https://twitter.com/astropeggy">Peggy Whiteson</a></li>
+        <div class="background">
+            <div class="panel" id="topleft">
+                <h2>ISS Live Feed</h2>
+                <ul>
+                    <li><a href="http://iss.destination-orbite.net/live.php">Destination Orbite</a></li>
+                    <li><a href="https://www.nasa.gov/">NASA</a></li>
+                    <li><a href="https://www.nasa.gov/multimedia/nasatv/index.html#public">NASA TV</a></li>
+                </ul>
+                <img class="transformButton" src="media/img/TopLeft.png" alt="Top Left Arrow" />
+            </div>
+            <div class="panel" id="topright">
+                <h2> ISS Crew Twitter</h2>
+                <ul>
+                    <li><a href="https://twitter.com/NASA">NASA</a></li>
+                    <li><a href="https://twitter.com/space_station"></a></li>
+                    <li><a href="https://twitter.com/thom_astro">Thomas Pesquet</a></li>
+                    <li><a href="https://twitter.com/astro_kimbrough">Shane Kimbrough</a></li>
+                    <li><a href="https://twitter.com/astropeggy">Peggy Whiteson</a></li>
                 </ul>
                 <img class="transformButton" src="media/img/TopRight.png" alt="Top Right Arrow" />
 
-            </button>
-        </div>
-        <div class="panel" id="bottomleft">
-             <h2>Play the Game </h2>
-			 <p>Discover where is the International Spatial Station and when it will be just above you. Use form to indicate a specific position or click on the map or select a city of your choice.</p>
-              <img class="transformButton" src="media/img/BottomLeft.png" alt="Bottom Left" />
-        </div>
-        <div class="panel" id="bottomright">
+                </button>
+            </div>
+            <div class="panel" id="bottomleft">
+                <h2>Play the Game </h2>
+                <p>Discover where is the International Spatial Station and when it will be just above you. Use form to indicate a specific position or click on the map or select a city of your choice.</p>
+                <img class="transformButton" src="media/img/BottomLeft.png" alt="Bottom Left" />
+            </div>
+            <div class="panel" id="bottomright">
 
-		<h2>Our Crew</h2>
-    <ul>
-        <li><a href="https://metallou.github.io/portfolio/">Kévin</a></li>
-        <li><a href="https://darkilen.github.io/portfolio/">Samuel</a></li>
-        <li><a href="https://guillotjessica.github.io/portfolio/">Jessica</a></li>
-        <li><a href="http://laurenebergman.com">Laurène</a></li>
-    </ul>
-        <img class="transformButton" src="media/img/BottomRightArrow.png" alt="Bottom Arrow" />
-        </div>
-        <div class="panel" id="top">
-          <div class="dflex">
-            <img src="media/img/nasa.png" alt="" class="logo"/>
-            <h1>
-                ISS Live
-            </h1>
-            <img src="media/img/simplonlogo.png" alt="" class="logo"/>
-          </div>
+                <h2>Our Crew</h2>
+                <ul>
+                    <li><a href="https://metallou.github.io/portfolio/">Kévin</a></li>
+                    <li><a href="https://darkilen.github.io/portfolio/">Samuel</a></li>
+                    <li><a href="https://guillotjessica.github.io/portfolio/">Jessica</a></li>
+                    <li><a href="http://laurenebergman.com">Laurène</a></li>
+                </ul>
+                <img class="transformButton" src="media/img/BottomRightArrow.png" alt="Bottom Arrow" />
+            </div>
+            <div class="panel" id="top">
+                <div class="dflex">
+                    <img src="media/img/nasa.png" alt="" class="logo"/>
+                    <h1>
+                        ISS Live
+                    </h1>
+                    <img src="media/img/simplonlogo.png" alt="" class="logo"/>
+                </div>
 
-          <img class="transformButton" src="media/img/Top.png" alt="Top Arrow" />
-        </div>
-        <div class="panel" id="bottom">
-          <form id="form">
-              <fieldset>
-                <legend>Your position</legend>
-                  <label for="latitude"></label>
-                  <input id="latitude" type="number" step="any" name="latitude" value="" placeholder="latitude">
-                  <label for="longitude"></label>
-                  <input id="longitude" type="number" step="any" name="longitude" value="" placeholder="longitude">
-              </fieldset>
-              <fieldset>
-                <legend>Select a city</legend>
-                  <select id="countries">
-                      <option value="country">-- Country --</option>
-                  </select>
-                  <select id="cities">
-                      <option value="city">-- City --</option>
-                  </select>
-              </fieldset>
-			  
-			  <fieldset>
-			  <legend>Historical positions </legend>
-			  <select class="inline" id="markers">
-                      <option value="marker">-- Markers --</option>
-                  </select>
-			  <input class="inline" id="storage" type="button" name="storage" value="Clear Storage" />
-                  <input class="inline" id="clear" type="button" name="clear" value="Clear Marker" />
-				  <input class="inline" type="submit" name="name" value="Submit" />
-			  </fieldset>
-              <fieldset class="center">
-			  <legend>Historique des positions</legend>
-                  <select class="inline" id="markers">
-                      <option value="marker">-- Markers --</option>
-                  </select>
-                  <input class="inline" id="storage" type="button" name="storage" value="Clear Storage" />
-                  <input class="inline" id="clear" type="button" name="clear" value="Clear Marker" />
-				  <input class="inline" type="submit" name="name" value="Submit" />
-              </fieldset>
-			  <!--<fieldset>
-                <legend>Votre position</legend>
-                  <label for="latitude"></label>
-                  <input id="latitude" type="number" step="any" name="latitude" value="" placeholder="latitude">
-                  <label for="longitude"></label>
-                  <input id="longitude" type="number" step="any" name="longitude" value="" placeholder="longitude">
-              </fieldset>-->
+                <img class="transformButton" src="media/img/Top.png" alt="Top Arrow" />
+            </div>
+            <div class="panel" id="bottom">
+                <form id="form">
+                    <fieldset>
+                        <legend>Your position</legend>
+                        <label for="latitude"></label>
+                        <input id="latitude" type="number" step="any" name="latitude" value="" placeholder="latitude">
+                        <label for="longitude"></label>
+                        <input id="longitude" type="number" step="any" name="longitude" value="" placeholder="longitude">
+                    </fieldset>
+                    <fieldset>
+                        <legend>Select a city</legend>
+                        <select id="countries">
+                            <option value="country">-- Country --</option>
+                        </select>
+                        <select id="cities">
+                            <option value="city">-- City --</option>
+                        </select>
+                    </fieldset>
 
-          </form>
-          <img class="transformButton" src="media/img/Bottom.png" alt="bottom Arrow" />
+                    <fieldset>
+                        <legend>Historical positions </legend>
+                        <select class="inline" id="markers">
+                            <option value="marker">-- Markers --</option>
+                        </select>
+                        <input class="inline" id="storage" type="button" name="storage" value="Clear Storage" />
+                        <input class="inline" id="clear" type="button" name="clear" value="Clear Marker" />
+                        <input class="inline" type="submit" name="name" value="Submit" />
+                    </fieldset>
+                    <fieldset class="center">
+                        <legend>Historique des positions</legend>
+                        <select class="inline" id="markers">
+                            <option value="marker">-- Markers --</option>
+                        </select>
+                        <input class="inline" id="storage" type="button" name="storage" value="Clear Storage" />
+                        <input class="inline" id="clear" type="button" name="clear" value="Clear Marker" />
+                        <input class="inline" type="submit" name="name" value="Submit" />
+                    </fieldset>
+                    <!--<fieldset>
+                        <legend>Votre position</legend>
+                        <label for="latitude"></label>
+                        <input id="latitude" type="number" step="any" name="latitude" value="" placeholder="latitude">
+                        <label for="longitude"></label>
+                        <input id="longitude" type="number" step="any" name="longitude" value="" placeholder="longitude">
+                        </fieldset>-->
 
-            </button>
-        </div>
-        <div class="panel" id="left">
-			<div class="containflex">
-			<div class="top">
-              <h2>
-                  ISS position
-              </h2>
-              <p>
-              Latitude :
-              <span id="ISSLatitude"></span>
-              <p>
-              <p>
-              Longitude :
-              <span id="ISSLongitude"></span>
-              </p>
-              <button id="recenterISS">
-                  Recenter on ISS
-              </button>
-			  </div>
-			  <div class="bottom">
-			   <h2>
-                  User position
-              </h2>
-              <p>
-              Latitude :
-              <span id="userLatitude"></span>
-              </p>
-              <p>
-              Longitude :
-              <span id="userLongitude"></span>
-              </p>
-              <button id="recenterUser">
-                  Recenter on User
-              </button>
-			  </div>
-			  </div>
-              <img class="transformButton" src="media/img/Left.png" alt="Left Arrow" />
+                </form>
+                <img class="transformButton" src="media/img/Bottom.png" alt="bottom Arrow" />
 
-        </div>
-        <div class="panel" id="right">
-		<div class="centerP">
-              <h2>
-                  ISS Pass Time
-              </h2>
-              <p>
-              Time
-              </p>
-              <p id="time"></p>
-              <p>
-              Countdown
-              </p>
-              <p id="countdown"></p>
-              <p>
-              Duration
-              </p>
-              <p id="duration"></p>
-              <button id="hourformat">Change Hour Format</button>
-			  </div>
-            <img class="transformButton" src="media/img/RightArrow.png" alt="Right Arrow" />
-        </div>
+                </button>
+            </div>
+            <div class="panel" id="left">
+                <div class="containflex">
+                    i<div class="top">
+                        <h2>
+                            ISS position
+                        </h2>
+                        <p>
+                        Latitude :
+                        <span id="ISSLatitude"></span>
+                        <p>
+                        <p>
+                        Longitude :
+                        <span id="ISSLongitude"></span>
+                        </p>
+                        <button id="recenterISS">
+                            Recenter on ISS
+                        </button>
+                    </div>
+                    <div class="bottom">
+                        <h2>
+                            User position
+                        </h2>
+                        <p>
+                        Latitude :
+                        <span id="userLatitude"></span>
+                        </p>
+                        <p>
+                        Longitude :
+                        <span id="userLongitude"></span>
+                        </p>
+                        <button id="recenterUser">
+                            Recenter on User
+                        </button>
+                    </div>
+                </div>
+                <img class="transformButton" src="media/img/Left.png" alt="Left Arrow" />
 
-      <img id="transformButton" src="media/img/fullScreen.png" alt="full screen button" />
-      </div>
+            </div>
+            <div class="panel" id="right">
+                <div class="centerP">
+                    <h2>
+                        ISS Pass Time
+                    </h2>
+                    <p>
+                    Time
+                    </p>
+                    <p id="time"></p>
+                    <p>
+                    Countdown
+                    </p>
+                    <p id="countdown"></p>
+                    <p>
+                    Duration
+                    </p>
+                    <p id="duration"></p>
+                    <button id="hourformat">Change Hour Format</button>
+                </div>
+                <img class="transformButton" src="media/img/RightArrow.png" alt="Right Arrow" />
+            </div>
+
+            <img id="transformButton" src="media/img/fullScreen.png" alt="full screen button" />
+        </div>
         <div id="map"></div>
     </body>
 </html>

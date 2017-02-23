@@ -92,6 +92,12 @@
 {
     background-color: grey;
 }
+.panel.cloaked *
+{
+    color: grey;
+    border-color: grey;
+}
+
 #transformButton
 {
     bottom: 25px;
